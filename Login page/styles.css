@@ -1,0 +1,76 @@
+body{
+    background-color: rgb(250, 249, 246);
+}
+
+#logo{
+    border-radius: 60%;
+    height: 7em;
+    width: 8em;
+}
+.outer{
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    min-width: 60em;
+    max-width: 80em;
+    margin: 0% auto 0 auto;
+    justify-content: center;    
+    left: 50%; 
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    padding: 2em;
+}
+#reset{
+    padding : 3em;
+}
+.form-floating { 
+    max-width: 300px;
+    margin: 0 auto 1em auto; 
+}
+
+#txt1{
+    text-align: center;    
+}
+
+#logIn-button{
+    margin: 1em auto 0 auto;
+    display: block;
+}
+#inputUsername, #inputPassword{
+    width: 20em;
+}
+.btn{
+    width: 10em;
+    background-color: rgb(46, 133, 201);
+}
+.btn:hover{
+    transition: background-color 0.3s;
+    background-color: rgb(24, 89, 179);
+}
+.links{
+    text-align: center;
+}
+a{
+    color: rgb(35, 109, 165);
+}
+a:link{
+    text-decoration: none;
+}
+a:hover{
+    color:rgb(24, 89, 179);
+    text-decoration: underline;
+}
+#fPassword{
+    text-align: right;
+}
+footer{
+    background-color: black; 
+    color: white; 
+    text-align: center; 
+    padding: 0.4em; 
+    position: relative; 
+    width: 100%;
+    opacity: 0.8;
+}
+
