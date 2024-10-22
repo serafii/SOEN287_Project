@@ -41,3 +41,22 @@ footer{
     margin-right: 3em;
 }
 
+.center-button{
+    text-align:center;
+}
+
+#table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    height:50%;
+    width: 50%;
+    background-color: white;
+    margin: auto;
+}
+
+td, th {
+    border:2px solid black;
+    text-align: left;
+    padding: 20px;
+    background-color: white;
+}
