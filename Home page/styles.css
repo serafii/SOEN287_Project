@@ -33,7 +33,6 @@ footer{
 }
 .works{
     text-align: center;
-   
 }
 .icon{
     height: 10em;
@@ -54,6 +53,7 @@ footer{
     height: 3em;
     width: 14em;
     font-size: large;
+
 }
 .btns:hover{
     transition: background-color 0.3s;
@@ -64,6 +64,7 @@ footer{
     display: flex; 
     justify-content: center; 
     align-items: center; 
+    margin-left: 1.5em;
 }
 .image-box {
     text-align: center;
@@ -96,6 +97,7 @@ footer{
     margin-left: 1em;
     margin-right: 1em;
     padding: 2em;
+    border-radius: 2em;
 }
 .services-text{
     text-align: left;

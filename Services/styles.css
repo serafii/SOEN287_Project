@@ -1,0 +1,23 @@
+.services-list{
+    background-color: white;
+    margin-left: 2em;
+    margin-right: 2em;
+    padding: 2em;
+}
+#back-image{
+    height: 28em;
+}
+.services-text{
+    text-align: justify;    
+}
+.image{
+    float: right;
+    margin-left: 2em;
+    height: 13em;
+    width: 20em;
+    border-radius: 1em;
+}
+.text-box{
+    display: flex;
+}
+
