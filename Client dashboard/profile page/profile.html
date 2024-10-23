@@ -12,7 +12,7 @@
 <body>
     <div class = "contain">
         <h1>Your account</h1>
-        <p id = "desc">modify your account</p><br/>
+        <p id = "desc">Modify your account</p><br/>
           <form action = "" method = "post" class = "row g-3 form-control needs-validation" novalidate onsubmit="return samePassword()">
               <div class="row g-3">
                   <div class = "col-md-6">
@@ -90,12 +90,19 @@
                  
               <div id = "buttons" class = "row g-3">
                   
-                  <input class = "btn btn-secondary" type = "submit" value = "save">
+                  <input class = "btn btn-secondary" type = "submit" value = "Save">
               </div>
           </form>
       </div>
-      <footer>
-           &copy Cleaning services 2024
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-0 border-top">
+        <p class="col-md-4 mb-0 text-body-secondary">© 2024 Cleaning Services</p>
+      
+        <ul class="nav col-md-4 justify-content-end">
+          <li class="nav-item"><a href="/Home page/Index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
+          <li class="nav-item"><a href="/Services/services.html" class="nav-link px-2 text-body-secondary">Services</a></li>
+          <li class="nav-item"><a href="/Pricing/Pricing.html" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+          <li class="nav-item"><a href="/Home page/Index.html#about-us" class="nav-link px-2 text-body-secondary">About Us</a></li>
+        </ul>
       </footer>
       <script src = "/Create account page/scripts.js"></script>
 </body>
