@@ -1,0 +1,98 @@
+header, footer{
+    background-color: whitesmoke;
+    padding-left: 2em;
+    padding-right: 2em; 
+}
+
+
+footer{
+    margin-top: 20px;
+}
+
+
+#logo{
+    height: 6em;
+    width: 6em;
+}
+
+
+
+#back-image{
+    background-image: url("/Common files/soft_blue.jpg");
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    height: 33em;
+}
+
+#pageTitle{
+    text-align: left;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+.DB-text{
+    text-align: justify;    
+}
+
+#AdminDB {
+    background-color: white;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-top: 5px;
+    padding: 10px 5px; 
+    margin-bottom: 2em;
+}
+
+#AdminDB a {
+    display: block; 
+    text-decoration: none; 
+    border-bottom: 1px solid gray; 
+    margin: 0; 
+    padding: 10px 0; 
+}
+
+#AdminDB a:first-of-type {
+    margin-top: 10px; 
+}
+
+#AdminDB a:last-of-type {
+    border-bottom: none; 
+    margin-bottom: 0; 
+}
+
+html, body {
+    height: 100%; 
+    
+}
+
+body {
+    display: flex; 
+    flex-direction: column; 
+}
+
+#back-image {
+    flex: 1; 
+    
+}
+
+.option-link {
+    display: inline-block;
+    width: 100%;
+}
+
+
+.option-box {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+    text-align: center; /* Center the text */
+}
+
+/* Darken on hover */
+.option-link:hover .option-box {
+    background-color: #e0e0e0; /* Slightly darker color on hover */
+    cursor: pointer;
+}
