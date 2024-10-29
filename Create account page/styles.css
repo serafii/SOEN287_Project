@@ -13,8 +13,12 @@ body{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);    
     background-color: white;
     padding: 6em;
+    padding-top: 4em;
     width: 55%;
     margin: auto;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 1em;
 }
 .contain.c2{
     text-align: justify;
@@ -25,12 +29,7 @@ body{
     justify-content: space-between;
     align-items: center;
 }
-footer{
-    background-color: whitesmoke;
-    padding : 1em;
-    text-align: center;
-    height: 6em;  
-}
+
 #desc{
     color:rgb(46, 133, 201);
 }
@@ -49,26 +48,16 @@ footer{
 #buttons{
     margin-top: 5%;
 }
-#back-to{
-    color: rgb(35, 109, 165); 
-    position:relative;
+
+header, footer{
+    background-color: whitesmoke;
+    padding-left: 2em;
+    padding-right: 2em;  
 }
-#back-to:link{
-    text-decoration: none;
+footer{
+    height: 10em;
 }
-#back-to:hover{
-    color:rgb(24, 89, 179);
-    text-decoration: underline;
-}
-.arr {
-    margin-right: 0.1em;
-    display: inline-block;
-    transform: translateY(-1.5px);
-}
-.arrow.right {
-    border: solid rgb(35, 109, 165); ;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 2px;
-    transform: rotate(135deg);
+#logo{
+    height: 6em;
+    width: 6em;
 }

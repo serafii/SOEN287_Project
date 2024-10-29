@@ -10,6 +10,34 @@
     <link rel = "icon" type = "image/jpg" href = "/Common files/Icon.png">
 </head>
 <body>
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-0 border-bottom" id = "navbar"> 
+        <div class="col-md-3 mb-2 mb-md-0">
+          <a href="/Home page/Index.html" class="d-inline-flex link-body-emphasis text-decoration-none">
+              <img id = "logo" src = "/Common files/Icon.png">
+          </a>
+        </div>
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/Home page/Index.html" class="nav-link px-2 link-secondary" title = "Home">Home</a></li>
+          <li><a href="/Services/services.html" class="nav-link px-2" title = "Services">Services</a></li>
+          <li><a href="/Pricing/Pricing.html" class="nav-link px-2" title = "Pricing">Pricing</a></li>
+          <li><a href="/Home page/Index.html#about-us" class="nav-link px-2" title = "About Us">About Us</a></li>
+        </ul>
+  
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" onsubmit="return searchFor()">
+          <input id = "search" type="search" class="form-control" placeholder="Search..." aria-label="Search" list = "search-suggestions">
+          <datalist id="search-suggestions">
+            <option value="Services">
+            <option value="Major cleaning">
+            <option value="Regular cleaning">
+            <option value="Exterior cleaning">
+          </datalist>
+        </form>
+        
+  
+        <div class="col-md-3 text-end">
+         <a href = "/Login page/SignIn.html"><button type="button" class="btn btn-outline-primary me-2">Login</button></a> 
+        </div>
+      </header>
     <div class = "contain">
         <h1>Your account</h1>
         <p id = "desc">Modify your account</p><br/>
@@ -105,6 +133,8 @@
         </ul>
       </footer>
       <script src = "/Create account page/scripts.js"></script>
+      <script src = "/Common files/common_scripts.js"></script>
+
 </body>
 </html>
 

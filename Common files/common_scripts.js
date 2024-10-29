@@ -1,22 +1,20 @@
+//Very basic generic search bar to navigate through every major page
+
 function searchFor(){
     let x = document.getElementById("search").value.toLowerCase();
     
-    if (x.includes("acc"))
+    if (x.includes("acc") || x.includes("log"))
         window.location.href = "/Login page/SignIn.html";
+    else if (x.includes("create"))
+        window.location.href = "/Create account page/Account.html";
     else if(x.includes("ser"))
-        window.location.href = "/Home page/Index.html#serv";
-    else if(x.includes("reg") || x.includes("inter"))
-        window.location.href = "/Services/services.html#regular";
-    else if(x.includes("maj"))
-        window.location.href = "/Services/services.html#major";
-    else if(x.includes("ext"))
-        window.location.href = "/Services/services.html#exterior";
-    else if(x.includes("compr"))
-        window.location.href = "/Services/services.html#comprehensive";
-    else if(x.includes("clean"))
-        window.location.href = "/Home page/Index.html#about-us";
+        window.location.href = "/Services/services.html";
     else if(x.includes("pric")||x.includes("cost"))
         window.location.href = "/Pricing/Pricing.html";
+    else if(x.includes("compan"))
+        window.location.href = "/Home page/Index.html#about-us";
+    else if(x.includes("forgot") && x.includes("passw"))
+        window.location.href = "/Login page/password.html";
     else
         alert("Nothing was found.");
 
