@@ -44,5 +44,16 @@ function samePassword(){
         return true;
     }
 }
+//doesnt work right now
+function formValidity(){
+  let form = document.querySelector('form');
+  if (samePassword()) {
+      //createAccount();
+      console.log(form.checkValidity())
+      return true; 
+  } else {
+      return false;
+  }
+}
 
 

@@ -15,6 +15,8 @@ function searchFor(){
         window.location.href = "/Home page/Index.html#about-us";
     else if(x.includes("forgot") && x.includes("passw"))
         window.location.href = "/Login page/password.html";
+    else if ((x.includes("add")||x.includes("reque")) && x.includes("service"))
+        window.location.href = "/Service Request/servicereq.html";
     else
         alert("Nothing was found.");
 

@@ -1,0 +1,14 @@
+header, footer{
+    background-color: whitesmoke;
+    padding-left: 2em;
+    padding-right: 2em; 
+}
+
+footer{
+    height: 10em;
+}
+
+#logo{
+    height: 6em;
+    width: 6em;
+}

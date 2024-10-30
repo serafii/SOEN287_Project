@@ -24,7 +24,7 @@ footer{
     overflow: hidden;
     text-align: center;
     position: relative;
-    height: 33em;
+    height: 40em;
 }
 
 #title{
@@ -33,7 +33,9 @@ footer{
   left: 15%;
   transform: translate(-50%, -50%);
 }
-
+.services-list{
+ margin-top: 11%; 
+}
 .icon{
     height: 10em;
 }

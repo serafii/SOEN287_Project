@@ -4,42 +4,37 @@ header, footer{
     padding-right: 2em; 
 }
 
-
 footer{
-    margin-top: 20px;
+    height: 10em;
 }
-
 
 #logo{
     height: 6em;
     width: 6em;
 }
 
-
-
 #back-image{
     background-image: url("/Common files/soft_blue.jpg");
-    overflow: hidden;
-    text-align: center;
-    position: relative;
-    height: 33em;
+    height: 100vh;
+    background-size: cover;
 }
 
 #pageTitle{
     text-align: left;
     font-weight: bold;
-    margin-top: 10px;
+    margin-left: 1em;
 }
-
 
 .DB-text{
     text-align: justify;    
 }
 
 #AdminDB {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 0.2em;
     background-color: white;
-    margin-left: 2em;
-    margin-right: 2em;
+    margin-left: 3em;
+    margin-right: 3em;
     margin-top: 5px;
     padding: 10px 5px; 
     margin-bottom: 2em;
@@ -62,10 +57,6 @@ footer{
     margin-bottom: 0; 
 }
 
-html, body {
-    height: 100%; 
-    
-}
 
 body {
     display: flex; 
@@ -81,7 +72,9 @@ body {
     display: inline-block;
     width: 100%;
 }
-
+.major{
+    color: black;
+}
 
 .option-box {
     background-color: #f9f9f9;
@@ -94,5 +87,6 @@ body {
 /* Darken on hover */
 .option-link:hover .option-box {
     background-color: #e0e0e0; /* Slightly darker color on hover */
+    transition: background-color 0.3s;
     cursor: pointer;
 }

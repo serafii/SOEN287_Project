@@ -1,0 +1,47 @@
+header, footer{
+    background-color: whitesmoke;
+    padding-left: 2em;
+    padding-right: 2em; 
+}
+
+footer{
+    height: 10em;
+}
+
+#logo{
+    height: 6em;
+    width: 6em;
+}
+body{ 
+    background-color: rgb(250, 249, 246);
+    background-image: url("/Common files/soft_blue.jpg");
+    background-size: cover;
+}
+.contain{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);    
+    background-color: white;
+    padding: 6em;
+    padding-top: 2em;
+    width: 95%;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-radius: 1em;
+}
+.btn.btn-secondary{
+    background-color: rgb(46, 133, 201);
+    color: white;
+}
+.btn.btn-secondary:hover{
+    transition: background-color 0.3s;
+    background-color: rgb(24, 89, 179);
+}
+#buttons{
+    margin-top: 5%;
+}
+#imageTypes{
+    color:rgb(46, 133, 201);
+}
+#desc{
+    color:rgb(46, 133, 201);
+}

@@ -58,7 +58,8 @@ function verifyPassword(){
     return false;
 }
 
-//Check how to save after reload
+//Using session storage to store temporarily data for demo purposes
+//Doesnt work well, have to review form.checkValidity()
 var client2;
 function createAccount(){
     let a = document.getElementById("firstName").value;
@@ -70,9 +71,18 @@ function createAccount(){
     let g = document.getElementById("zip").value;
     let h = document.getElementById("phone").value;
     let i = document.getElementById("password").value;
-
+   
     client2 = new Client(a,b,c,d,e,f,g,h,i);
     clients.push(client2);
-
+    
+    sessionStorage.setItem('clients', JSON.stringify(clients));
     window.location.href = "/Login page/SignIn.html";
 }
+//Test
+
+window.onload = function() {
+    const storedClients = sessionStorage.getItem('clients');
+    if (storedClients) {
+        clients.push(...JSON.parse(storedClients)); 
+    }
+};

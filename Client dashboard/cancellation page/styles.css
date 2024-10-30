@@ -16,7 +16,7 @@ footer{
     overflow: hidden;
     text-align: center;
     position: relative;
-    height: 33em;
+    height: 40em;
 }
 
 #title{
@@ -52,6 +52,7 @@ footer{
     width: 50%;
     background-color: white;
     margin: auto;
+    border:2px solid black;
 }
 
 td, th {
