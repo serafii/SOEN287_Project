@@ -10,6 +10,10 @@ footer{
     height: 6em;
     width: 6em;
 }
+#filter-date{
+    padding: 0.3em;
+    border-radius: 0.2em;
+}
 
 #back-image{
     background-image: url("/Common files/soft_blue.jpg");
@@ -49,7 +53,7 @@ footer{
     font-family: arial, sans-serif;
     border-collapse: collapse;
     height:50%;
-    width: 50%;
+    width: 100%;
     background-color: white;
     margin: auto;
     border:2px solid black;
@@ -61,17 +65,19 @@ td, th {
     padding: 20px;
     background-color: white;
 }
-/* Make the table header sticky */
+
   #table thead th {
     position: sticky;
     top: 0;
-    background-color: white; /* Match header background to table */
+    background-color: white; 
     z-index: 1;
-    border-bottom: 2px solid black; /* Optional: enhance header separation */
+    border-bottom: 1px solid black;    
+    outline: 1px solid black;         
+    outline-offset: -1px;    
   }
-  
   .table-container {
-    height: 400px;         /* Adjust height as necessary */
-    overflow-y: auto;      /* Enables vertical scrolling when content exceeds the height */
-    margin: auto;          /* Center the table container */
+    height: 400px;  
+    width: 50%;      
+    overflow-y: auto;      
+    margin: auto;         
 }

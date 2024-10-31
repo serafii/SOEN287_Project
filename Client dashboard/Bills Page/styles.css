@@ -44,12 +44,6 @@ footer{
     overflow: hidden;
     margin-right: 3em;
 }
-
-/* Verify again to remove
-body {
-    font-family: 'lato', sans-serif;
-}*/
-
 .container {
     max-width: 1000px;
     margin-left: auto;

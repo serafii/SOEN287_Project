@@ -1,6 +1,9 @@
-    let title = document.getElementById("businessTitle");
-    let slogan = document.getElementById("businessSlogan");
+    const title = document.getElementById("businessTitle");
+    const slogan = document.getElementById("businessSlogan");
 
-    title.innerHTML = localStorage.getItem("newTitle");
-    slogan.innerHTML = localStorage.getItem("newSlogan");
-
+    if(title===localStorage.getItem("title") && slogan ===localStorage.getItem("slogan")){
+    localStorage.setItem("title",title.textContent);
+    localStorage.setItem("slogan",slogan.textContent);
+    }
+    title.textContent = localStorage.getItem("title");
+    slogan.textContent = localStorage.getItem("slogan");
