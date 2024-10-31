@@ -44,17 +44,22 @@
 
       
       <div id = "back-image">
-        <div id = "title"><h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Availed Services</h1><br/><br/></div>
+        <div id = "title"><h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Current Services</h1><br/><br/></div>
         <br><br><br><br><br><br>
+
+        <div class="filter-container">
+          <input type="date" id="filter-date" />
+          <button class="btn btn-primary" onclick="filterByDate()">Filter by Date</button>
+        </div><br>
 
         
 
-        <div id="table-wrapper">
+        <div class="table-container">
             <table id="table" class = "table table-hover "> 
                 <thead class = "table-active">
                   <th class="py-3 px-6">Customer ID</th>
                   <th class="py-3 px-6">Services</th>
-                  <th class="py-3 px-6">Date</th>
+                  <th class="py-3 px-6 col col-3">Date</th>
                   <th class="py-3 px-6 center-button">Confirm Execution</th>
                 </thead>
                 
@@ -62,61 +67,61 @@
                 <tr>
                   <td>Major cleaning</td>
                   <td>Major cleaning</td>
-                  <td>12/12/2024</td>
+                  <td class="col col-3">2024-12-12</td>
                   <td class = "center-button"><button type="button" class = "btn btn-success btn-sm" onclick="confirmService(this)">Confirm</button></td>
                 </tr>
                 <tr>
                   <td>Major cleaning</td>
                   <td>Regular cleaning</td>
-                  <td>12/12/2024</td>
+                  <td class="col col-3">2024-10-20</td>
                   <td class = "center-button"><button type="button" class = "btn btn-success btn-sm" onclick="confirmService(this)">Confirm</button></td> 
                 </tr>
                 <tr>
                   <td>Major cleaning</td>
                   <td>Exterior cleaning</td>
-                  <td>12/12/2024</td>
+                  <td class="col col-3">2024-09-05</td>
                   <td class = "center-button"><button type="button" class = "btn btn-success btn-sm" onclick="confirmService(this)">Confirm</button></td>
                 </tr>
                 <tr>
                   <td>Major cleaning</td>
                   <td>Major cleaning</td>
-                  <td>12/12/2024</td>
+                  <td class="col col-3">2024-09-17</td>
                   <td class = "center-button"><button type="button" class = "btn btn-success btn-sm" onclick="confirmService(this)">Confirm</button></td>
                 </tr>
                 <tr>
                   <td>Major cleaning</td>
                   <td>Major cleaning</td>
-                  <td>12/12/2024</td>
+                  <td class="col col-3">2024-12-20</td>
                   <td class = "center-button"><button type="button" class = "btn btn-success btn-sm" onclick="confirmService(this)">Confirm</button></td>
                 </tr>
                 <tr>
                   <td>Major cleaning</td>
                   <td>Major cleaning</td>
-                  <td>12/12/2024</td>
+                  <td class="col col-3">2024-10-30</td>
                   <td class = "center-button"><button type="button" class = "btn btn-success btn-sm" onclick="connfirmService(this)">Confirm</button></td>
                 </tr>
                 <tr>
                   <td>Major cleaning</td>
                   <td>Major cleaning</td>
-                  <td>12/12/2024</td>
+                  <td class="col col-3">2024-08-17</td>
                   <td class = "center-button"><button type="button" class = "btn btn-success btn-sm" onclick="confirmService(this)">Confirm</button></td>
                 </tr>
                 <tr>
                   <td>Major cleaning</td>
                   <td>Major cleaning</td>
-                  <td>12/12/2024</td>
+                  <td class="col col-3">2024-09-03</td>
                   <td class = "center-button"><button type="button" class = "btn btn-success btn-sm" onclick="confirmService(this)">Confirm</button></td>
                 </tr>
                 <tr>
                   <td>Major cleaning</td>
                   <td>Major cleaning</td>
-                  <td>12/12/2024</td>
+                  <td class="col col-3">2024-10-13</td>
                   <td class = "center-button"><button type="button" class = "btn btn-success btn-sm" onclick="confirmService(this)">Confirm</button></td>
                 </tr>
                 <tr>
                     <td>Major cleaning</td>
                     <td>Major cleaning</td>
-                    <td>12/13/2024</td>
+                    <td class="col col-3">2024-11-16</td>
                     <td class = "center-button"><button type="button" class = "btn btn-success btn-sm" onclick="confirmService(this)">Confirm</button></td>
                   </tr>
                   
