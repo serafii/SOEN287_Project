@@ -38,7 +38,7 @@
       <br/><br/> 
       <h1>Edit Business Information</h1>
       <p id = "desc">Edit your business or logo here!</p><br/>
-        <form action = "" method = "" class = "row g-3 form-control needs-validation" novalidate>
+        <form action = "" method = "" class = "row g-3 form-control" onsubmit="saveData()">
             <div class="row g-3">
                 <div class = "col-md-6">
                     <label for = "businessName" class = "form-label">Business Name</label>
@@ -46,11 +46,13 @@
                 </div>
                 <div class="col-md-6">
                     <label for = "editLogo" class = "form-label">Logo <small id = "imageTypes">(JPEG/JPG, PNG or WebP)</small></label>
-                    <input id = "editLogo" class = "form-control box" type = "file" required accept=".jpeg, .jpg, .png, .webp">
+                    <input id = "editLogo" class = "form-control box" type = "file" accept=".jpeg, .jpg, .png, .webp">
                 </div>
+                <div class = "col-md-12">
+                  <label for = "businessSlogan" class = "form-label">Business Slogan</label>
+                  <input id = "businessSlogan" class = "form-control box" type = "text" required placeholder="Because clean matters">
+              </div>
             </div> 
-            
-                
             <div id = "buttons" class = "row g-3">
                 <input class = "btn btn-secondary" type = "submit" value = "Save & Continue">
             </div>
@@ -63,12 +65,13 @@
         <p class="col-md-4 mb-0 text-body-secondary">© 2024 Cleaning Services</p>
       
         <ul class="nav col-md-4 justify-content-end">
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+          <li class="nav-item"><a href="/Home page/Index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
           <li class="nav-item"><a href="/Services/services.html" class="nav-link px-2 text-body-secondary">Services</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
-          <li class="nav-item"><a href="#about-us" class="nav-link px-2 text-body-secondary">About Us</a></li>
+          <li class="nav-item"><a href="/Pricing/Pricing.html" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+          <li class="nav-item"><a href="/Home page/Index.html#about-us" class="nav-link px-2 text-body-secondary">About Us</a></li>
         </ul>
       </footer>
       <script src = "/Common files/common_scripts.js"></script>
+      <script src = "scripts.js"></script>
 </body>
 </html>

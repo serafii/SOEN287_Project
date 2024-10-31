@@ -38,11 +38,19 @@
       <br/><br/> 
       <h1>Edit Services</h1>
       <p id = "desc">Add, edit or remove your services here!</p><br/>
-          <form action = "" method = "" class = "row g-3 form-control needs-validation" novalidate>
+
+      <div class="d-flex justify-content-center bg-light p-3 mb-4 border rounded" id = "linkbar">
+        <a href="#form1" class = "nav-link navlink mx-3"><h6>Add a Service</h6></a>
+        <a href="#form2" class = "nav-link navlink mx-3"><h6>Modify a Current Service</h6></a>
+        <a href="#form3" class = "nav-link navlink mx-3"><h6>Modify Service Pricing</h6></a>
+        <a href="#form4" class = "nav-link navlink mx-3"><h6>Delete an Existing Service</h6></a>
+      </div>
+
+          <form action = "" method = "" class = "row g-3 form-control" id = "form1" onsubmit="addConfirmation(event)">
           <h4>Add a Service</h4>
           <div class="row g-3">
             <div class="col-md-6">
-              <label for="addService" class="form-label">Add Service</label>
+              <label for="addService" class="form-label">Service Name</label>
               <input type="text" class="form-control" id="addService" placeholder="Major Cleaning Service">
             </div>
             <div class="col-md-6">
@@ -55,16 +63,16 @@
             <textarea class="form-control" id="serviceDescription" rows="3" placeholder="Deep cleaning of all rooms..."></textarea>
           </div>  
         <div class = "row g-3 buttons">
-          <input class = "btn btn-secondary" type = "submit" value = "Save & Continue" onclick="addConfirmation(event)">
+          <input class = "btn btn-secondary" type = "submit" value = "Save & Continue">
       </div>
       </form>
     </br></br>
-      <form action = "" method = "" class = "row g-3 form-control needs-validation" novalidate>
-          <h4>Modify a Current Service</h4><br/>
+      <form action = "" method = "" class = "row g-3 form-control" id = "form2" onsubmit="modConfirmation(event)">
+          <h4>Modify a Current Service</h4>
 
           <div class="dropdown">
             <button class="btn btn-outline-primary dropdown-toggle" type="button" id="basicDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Service
+              Select Service
             </button>
             <ul class="dropdown-menu" aria-labelledby="basicDropdown">
                 <li><a class="dropdown-item" onclick="selectOption('--')">--</a></li>
@@ -74,24 +82,64 @@
                 <li><a class="dropdown-item" onclick="selectOption('Comprehensive cleaning')">Comprehensive cleaning</a></li>
             </ul>
         </div>
-
           <div class="mb-3">
             <label for="serviceDescription" class="form-label">Service Description</label>
-            <textarea class="form-control" id="serviceDescription" rows="3" placeholder="Deep cleaning of all rooms..."></textarea>
+            <textarea class="form-control" id="serviceDescription" rows="3" placeholder="Power washing surfaces..."></textarea>
           </div> 
-
           <div class = "row g-3 buttons">
-            <input class = "btn btn-secondary" type = "submit" value = "Save & Continue" onclick="modConfirmation(event)">
+            <input class = "btn btn-secondary" type = "submit" value = "Save & Continue">
         </div>
         </form>
       </br></br>
-      <form action = "" method = "" class = "row g-3 form-control needs-validation" novalidate>
+
+        <form action="" method="POST" class="row g-3 form-control" id = "form3" onsubmit="modConfirmation(event)">
+          <h4>Modify Service Pricing</h4>
+      
+          <div class="dropdown mb-3">
+            <button class="btn btn-outline-primary dropdown-toggle" type="button" id="basicDropdown3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Select Service
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="serviceDropdown">
+              <li><a class="dropdown-item" onclick="selectOption3('Regular interior cleaning')">Regular interior cleaning</a></li>
+              <li><a class="dropdown-item" onclick="selectOption3('Major interior cleaning')">Major interior cleaning</a></li>
+              <li><a class="dropdown-item" onclick="selectOption3('Exterior cleaning')">Exterior cleaning</a></li>
+              <li><a class="dropdown-item" onclick="selectOption3('Comprehensive cleaning')">Comprehensive cleaning</a></li>
+            </ul>
+          </div>
+        
+
+          <div class="mb-3">
+            <label for="servicePrice" class="form-label">Service Price ($/hr)</label>
+            <input type="number" class="form-control" id="servicePrice" placeholder="Enter new price" required min="1">
+          </div>
+        
+          <div class="input-group mb-2">
+            <span class="input-group-text">Point 1</span>
+            <input type="text" class="form-control" id="descriptionPoint1" placeholder="Light dusting and vacuuming">
+          </div>
+          
+          <div class="input-group mb-2">
+            <span class="input-group-text">Point 2</span>
+            <input type="text" class="form-control" id="descriptionPoint2" placeholder="Basic kitchen and bathroom cleaning">
+          </div>
+          
+          <div class="input-group mb-2">
+            <span class="input-group-text">Point 3</span>
+            <input type="text" class="form-control" id="descriptionPoint3" placeholder="Surface sanitizing">
+          </div>
+
+          <div class="row g-3 buttons">
+            <input class="btn btn-secondary" type="submit" value="Save & Continue">
+          </div>
+        </form>
+      </br></br>
+      <form action = "" method = "" class = "row g-3 form-control" id = "form4" onsubmit="delConfirmation(event)">
           <h4>Delete an Existing Service</h4>
           <p id = "delete">Deleting any service is an irreversible action.</p>
           <div class="row g-3">
             <div class="dropdown">
               <button class="btn btn-outline-danger dropdown-toggle" type="button" id="basicDropdown2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Service
+                   Select Service
               </button>
               <ul class="dropdown-menu" aria-labelledby="basicDropdown">
                 <li><a class="dropdown-item" onclick="selectOption2('--')">--</a></li>
@@ -102,7 +150,7 @@
               </ul>
             </div>
            <div class = "row g-3 buttons">
-            <input class = "btn btn-outline-danger me-2" type = "submit" value = "Delete Service & Continue" onclick="delConfirmation(event)">
+            <input class = "btn btn-outline-danger me-2" type = "submit" value = "Delete Service & Continue">
           </div>
          </div>
         </br></br>
@@ -113,10 +161,10 @@
         <p class="col-md-4 mb-0 text-body-secondary">© 2024 Cleaning Services</p>
       
         <ul class="nav col-md-4 justify-content-end">
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+          <li class="nav-item"><a href="/Home page/Index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
           <li class="nav-item"><a href="/Services/services.html" class="nav-link px-2 text-body-secondary">Services</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
-          <li class="nav-item"><a href="#about-us" class="nav-link px-2 text-body-secondary">About Us</a></li>
+          <li class="nav-item"><a href="/Pricing/Pricing.html" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+          <li class="nav-item"><a href="/Home page/Index.html#about-us" class="nav-link px-2 text-body-secondary">About Us</a></li>
         </ul>
       </footer>
 

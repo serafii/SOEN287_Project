@@ -6,6 +6,10 @@ function selectOption2(optionText){
     let x = document.getElementById("basicDropdown2");
     x.innerHTML = optionText;
 }
+function selectOption3(optionText){
+    let x = document.getElementById("basicDropdown3");
+    x.innerHTML = optionText;
+}
 function addConfirmation(event){
     if (confirm("Are you sure you want to add this service?") == true) {
         window.location.href = "/Manager dashboard/manager.html";
@@ -30,3 +34,4 @@ function delConfirmation(event){
         event.preventDefault();
     }
 }
+

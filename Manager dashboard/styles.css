@@ -31,7 +31,7 @@ footer{
 
 #AdminDB {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 0.2em;
+    border-radius: 0.3em;
     background-color: white;
     margin-left: 3em;
     margin-right: 3em;
@@ -73,20 +73,20 @@ body {
     width: 100%;
 }
 .major{
+    font-size: 21px;
     color: black;
 }
 
 .option-box {
     background-color: #f9f9f9;
+    border-radius: 0.3em;
     padding: 20px;
     border: 1px solid #ddd;
     transition: background-color 0.3s ease;
-    text-align: center; /* Center the text */
+    text-align: center; 
 }
-
-/* Darken on hover */
 .option-link:hover .option-box {
-    background-color: #e0e0e0; /* Slightly darker color on hover */
+    background-color: #e0e0e0; 
     transition: background-color 0.3s;
     cursor: pointer;
 }
