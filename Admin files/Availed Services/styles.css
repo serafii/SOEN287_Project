@@ -1,14 +1,80 @@
 header, footer{
     background-color: whitesmoke;
     padding-left: 2em;
-    padding-right: 2em; 
+    padding-right: 2em;  
 }
-
 footer{
     height: 10em;
 }
-
 #logo{
     height: 6em;
     width: 6em;
 }
+
+#back-image{
+    background-image: url("/Common files/soft_blue.jpg");
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    height: 40em;
+}
+
+#title{
+  position:absolute;
+  top: 20%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+}
+
+.icon{
+    height: 10em;
+}
+
+#about-us{
+    margin-left: 2em;
+}
+#info-text{
+    text-align: justify;
+}
+.info-block{
+    overflow: hidden;
+    margin-right: 3em;
+}
+
+.center-button{
+    text-align:center;
+}
+
+#table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    height:50%;
+    width: 50%;
+    background-color: white;
+    margin: auto;
+    border:2px solid black;
+}
+
+td, th {
+    border:2px solid black;
+    text-align: left;
+    padding: 20px;
+    background-color: white;
+}
+
+#table-wrapper {
+    height: 60vh; /* Adjust based on available space */
+    overflow-y: auto;
+    padding-bottom: 20px; /* Ensures the last row isn’t cut off */
+  }
+  
+  /* Make the table header sticky */
+  #table thead th {
+    position: sticky;
+    top: 0;
+    background-color: white; /* Match header background to table */
+    z-index: 1;
+    border-bottom: 2px solid black; /* Optional: enhance header separation */
+  }
+  
+  
