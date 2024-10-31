@@ -1,14 +1,117 @@
-header, footer{
+header, footer {
     background-color: whitesmoke;
     padding-left: 2em;
-    padding-right: 2em; 
+    padding-right: 2em;  
 }
-
-footer{
+footer {
     height: 10em;
 }
-
-#logo{
+#logo {
     height: 6em;
     width: 6em;
 }
+
+#back-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/Common files/soft_blue.jpg");
+    overflow: hidden;
+    text-align: center;
+    height: 100vh;
+    background-size: cover;
+}
+
+#title{
+    margin-top: 50px;
+}
+
+
+.icon {
+    height: 10em;
+}
+
+#about-us {
+    margin-left: 2em;
+}
+#info-text {
+    text-align: justify;
+}
+.info-block {
+    overflow: hidden;
+    margin-right: 3em;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.responsive-table {
+    list-style: none;
+    padding: 0;
+}
+.responsive-table li {
+    border-radius: 3px;
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1px;
+}
+.filter-container {
+    margin-bottom: 10px;
+  }
+  
+  .filter-container input,
+  .filter-container button {
+    margin-right: 10px;
+    
+  }
+
+
+.table-header {
+    position:sticky;
+    top:0;
+    z-index:1;
+    background-color: #6db6d5;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+.table-row {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+}
+.table-row:hover{
+    transition: background-color 0.3s ease;
+    background-color: #e0e0e0;
+}
+.col-1 {
+    flex-basis: 40%; 
+}
+.col-2 {
+    flex-basis: 20%;
+}
+.col-3{
+    flex-basis:20%;
+}
+
+    .btns{
+        background-color: rgb(205, 6, 6);
+        transition: background-color 0.3s;
+    }
+    .btns:hover{
+        background-color: rgb(205, 6, 6);;
+    }
+
+
+    .btns2{
+        background-color: rgb(29, 115, 0);
+        transition: background-color 0.3s;
+    }
+    .btns2:hover{
+        background-color: rgb(29, 115, 0);
+    }
