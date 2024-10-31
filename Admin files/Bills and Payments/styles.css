@@ -26,7 +26,10 @@ footer {
     margin-top: 50px;
 }
 
-
+#filter-date{
+    padding: 0.3em;
+    border-radius: 0.2em;
+}
 .icon {
     height: 10em;
 }
@@ -51,6 +54,7 @@ footer {
 }
 
 .responsive-table {
+    overflow-x: hidden;
     list-style: none;
     padding: 0;
 }
