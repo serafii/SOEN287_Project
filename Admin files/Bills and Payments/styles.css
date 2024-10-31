@@ -15,7 +15,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("/Common files/soft_blue.jpg");
+    background-image: url("../../Common files/soft_blue.jpg");
     overflow: hidden;
     text-align: center;
     height: 100vh;

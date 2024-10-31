@@ -47,10 +47,10 @@ function verifyPassword(){
     }
 
     if(clientCheck){
-        window.location.href = "/Client dashboard/client.html"; 
+        window.location.href = "../Client dashboard/client.html"; 
     }
     else if (managerCheck){
-        window.location.href = "/Manager dashboard/manager.html";
+        window.location.href = "../Manager dashboard/manager.html";
     }
     else{
         document.getElementById("check").innerHTML = "Invalid username or password. Please try again";
@@ -76,7 +76,7 @@ function createAccount(){
     clients.push(client2);
     
     sessionStorage.setItem('clients', JSON.stringify(clients));
-    window.location.href = "/Login page/SignIn.html";
+    window.location.href = "../Login page/SignIn.html";
 }
 //Test
 

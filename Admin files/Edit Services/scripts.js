@@ -12,7 +12,7 @@ function selectOption3(optionText){
 }
 function addConfirmation(event){
     if (confirm("Are you sure you want to add this service?") == true) {
-        window.location.href = "/Manager dashboard/manager.html";
+        window.location.href = "../../Manager dashboard/manager.html";
         alert("Service successfully added!")
     } else {
         event.preventDefault();
@@ -20,7 +20,7 @@ function addConfirmation(event){
 }
 function modConfirmation(event){
     if (confirm("Are you sure you want to modify this service?") == true) {
-        window.location.href = "/Manager dashboard/manager.html";
+        window.location.href = "../../Manager dashboard/manager.html";
         alert("Service successfully modified!")
     } else {
         event.preventDefault();
@@ -28,7 +28,7 @@ function modConfirmation(event){
 }
 function delConfirmation(event){
     if (confirm("Are you sure you want to delete this service? This action cannot be undone later.") == true) {
-        window.location.href = "/Manager dashboard/manager.html";
+        window.location.href = "../../Manager dashboard/manager.html";
         alert("Service successfully removed!")
     } else {
         event.preventDefault();

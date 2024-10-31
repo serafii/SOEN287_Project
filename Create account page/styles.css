@@ -1,7 +1,6 @@
 body{ 
     background-color: rgb(250, 249, 246);
-    /*Review background image*/
-    background-image: url("/Common files/soft_blue.jpg");
+    background-image: url("../Common files/soft_blue.jpg");
     background-size: cover;
 }
 /*For terms page logo*/

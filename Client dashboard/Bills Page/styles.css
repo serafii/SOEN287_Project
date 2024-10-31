@@ -12,7 +12,7 @@ footer{
 }
 
 #back-image{
-    background-image: url("/Common files/soft_blue.jpg");
+    background-image: url("../../Common files/soft_blue.jpg");
     overflow: hidden;
     text-align: center;
     position: relative;
