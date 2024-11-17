@@ -19,7 +19,7 @@ const { google } = require('googleapis');
   });
 
 
-  const sendEmail = async (email, username) => {
+  const sendEmail = async (email, htmlContent, subject) => {
     try {
       const { token } = await oauth2Client.getAccessToken();
   
@@ -41,8 +41,8 @@ const { google } = require('googleapis');
       const mailOptions = {
         from: process.env.EMAIL_ADDRESS,
         to: email,  
-        subject: 'Account Creation',
-        html: `<h1>Welcome to businessName!</h1><p>👋 Hi ${username},</p><p>Thank you for creating an account with us!<br>TYou can now access all of our features and start enjoying the full benefits of your account.</p><p>Best regards,<br>businessName Team</p>`,
+        subject: subject,
+        html: htmlContent,
       };
   
       const info = await transporter.sendMail(mailOptions);
@@ -110,12 +110,15 @@ function createAccount(req, res){ //Create account logic, need to send email and
                   }
                 });
                 //Send email
-                sendEmail(email, username);
+                let htmlContent = `<h1>Welcome to businessName!</h1><p>👋 Hi ${username},</p><p>Thank you for creating an account with us!<br>You can now access all of our features and start enjoying the full benefits of your account.</p><p>Best regards,<br>businessName Team</p>`;
+                let subject = 'Account Creation';
+                sendEmail(email, htmlContent, subject);
             });
-            return res.sendFile(path.join(__dirname, '..', 'Frontend/Create account page', 'accountCreated.html')); //Make new page for account creation successful
+            return res.sendFile(path.join(__dirname, '..', 'Frontend/Create account page', 'accountCreated.html')); 
             
         });
     }); 
 } //End of create account post method
 
 module.exports.createAccount = createAccount;
+module.exports.sendEmail = sendEmail;

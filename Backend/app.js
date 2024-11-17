@@ -6,7 +6,8 @@ const createAccountModule = require('./createAccount');
  
 //This app.js file handles ALL get/post requests from clients
 //Actual get/post logic is defined in other js files and imported for simplicity
-//This is the only file that handles all express requests **IMPORTANT**
+//**IMPORTANT** 
+//This is the only file that handles all express requests
 
 app.use(express.urlencoded({ extended: false }));
 
@@ -17,6 +18,10 @@ app.use(express.static(path.join(__dirname, '../Frontend')));
   app.post('/createAccount', createAccountModule.createAccount); 
 
   app.post('/login',loginModule.login);
+
+  app.post('/forgotPassword', loginModule.forgotPassword);
+
+  app.post('/resetPassword', loginModule.resetPassword);
 
   app.get('/', (req, res) => { //Send to home page when accessing the website
     res.sendFile(path.join(__dirname, '..', 'Frontend/Home page', 'Index.html'));

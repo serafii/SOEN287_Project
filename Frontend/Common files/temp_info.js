@@ -27,7 +27,7 @@ var manager = new Manager("@manage","abc654321");
 const clients = [client1];
 const managers = [manager];
 
-function verifyPassword1(){
+function verifyPassword(){
     let x = document.getElementById("inputUsername").value;
     let y = document.getElementById("inputPassword").value;
     let clientCheck = false;
@@ -65,6 +65,6 @@ function verifyPassword1(){
         verifyPassword()
     });*/
 
-    function verifyPassword(){
+    function verifyPassword1(){
         document.getElementById("check").innerHTML = "Invalid username or password. Please try again";
     }
