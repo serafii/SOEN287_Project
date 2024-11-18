@@ -44,12 +44,24 @@ function samePassword(){
         return true;
     }
 }
-//doesnt work right now
+
+  window.onload = ()=>{
+    const url = new URLSearchParams(window.location.search);
+    if (url.has('error') && url.get('error') === 'invalidUsername') {
+      document.getElementById("wrongUsername").innerHTML = "Username already taken";
+    }
+};
+
+  window.onload = ()=>{
+    const url = new URLSearchParams(window.location.search);
+    if (url.has('error') && url.get('error') === 'invalidEmail') {
+      document.getElementById("wrongEmail").innerHTML = "Email address already linked to an existing account";
+    }
+  };
+
+
 function formValidity(){
-  let form = document.querySelector('form');
   if (samePassword()) {
-      //createAccount();
-      console.log(form.checkValidity())
       return true; 
   } else {
       return false;

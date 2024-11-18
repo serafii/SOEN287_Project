@@ -13,6 +13,8 @@ function login (req, res){
         let query = db.query(sqlUsername, username, (err, result) => {
             if(err)
               return res.status(500).send("Error retrieving account data");
+            if(result.length==0)
+              return res.redirect('/Login page/SignIn.html?error=invalid');
     
             const client = result[0];
     
@@ -28,7 +30,7 @@ function login (req, res){
         });
       }
       
-      //This WILL not work if two clients ask to reset password at the same time
+      //This may not work if two clients ask to reset password at the same time
       //Need to find a way to get ID from the forgot password function
       let ID = 0; //Not secure, change if possible
 
@@ -58,7 +60,7 @@ function login (req, res){
       });
     }
 
-    function resetPassword (req, res){ //Need to fix, cannot retrieve client ID **
+    function resetPassword (req, res){ //Improve ID fetching if possible
 
       const password = req.body.password;
       const id = ID;

@@ -23,6 +23,9 @@ app.use(express.static(path.join(__dirname, '../Frontend')));
 
   app.post('/resetPassword', loginModule.resetPassword);
 
+  //Do not uncomment before fixed
+  //app.post('/deleteAccount', createAccountModule.deleteAccount);
+
   app.get('/', (req, res) => { //Send to home page when accessing the website
     res.sendFile(path.join(__dirname, '..', 'Frontend/Home page', 'Index.html'));
   });

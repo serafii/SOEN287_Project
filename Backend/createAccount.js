@@ -81,7 +81,7 @@ function createAccount(req, res){ //Create account logic, need to send email and
         return res.status(500).send("Error creating account");
       
       if (result.length > 0) 
-        return res.send("Username already taken"); //Try to have something display on the form page instead
+        return res.redirect('/Create account page/Account.html?error=invalidUsername'); //Works but page reloads and form data is cleared
 
         let sqlMail = "SELECT * FROM Clients WHERE Email = ?";
 
@@ -89,7 +89,7 @@ function createAccount(req, res){ //Create account logic, need to send email and
           if(err)
             return res.status(500).send("Error creating account");
           if (result.length > 0) 
-            return res.send("An email is already associated to this account"); //Same as for username, do not leave like this
+            return res.redirect('/Create account page/Account.html?error=invalidEmail'); //Works but page reloads and form data is cleared
            
             let sqlStatement = "INSERT INTO Clients SET ?";
 
@@ -120,5 +120,26 @@ function createAccount(req, res){ //Create account logic, need to send email and
     }); 
 } //End of create account post method
 
+function deleteAccount(req, res){
+  //Need to retrieve user ID of the logged in client
+  //Probably have to use express session
+  const id = 1;
+
+  let sqlStatement = "DELETE FROM Clients WHERE ID = ?";
+  let query = db.query(sqlStatement, id, (err,result) =>{
+      if(err)
+        return res.status(500).send("Error deleting account");
+
+      let sqlStatement2 = "DELETE FROM LoginInformation WHERE ID = ?";
+        let query2 = db.query(sqlStatement2, id, (err, result) =>{
+        if(err)
+          return res.status(500).send("Error deleting account");
+      
+        return res.status(200).send("Account successfully deleted");
+      });
+  });
+}
+
 module.exports.createAccount = createAccount;
 module.exports.sendEmail = sendEmail;
+//module.exports.deleteAccount = deleteAccount;
