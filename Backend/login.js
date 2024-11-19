@@ -22,10 +22,10 @@ function login (req, res){
               if(client.Role === "Client")
                 return res.redirect(`/Client dashboard/client.html?name=${client.Username}`);
               else if (client.Role === "Manager")
-                return res.redirect("/Manager dashboard/manager.html");
+                return res.redirect("/Manager dashboard/manager.html?link=manager"); //Change link to actual manager dashboard
             }
             else
-            return res.send("Password and username do not match"); 
+              return res.send("Password and username do not match"); 
         });
       }
       

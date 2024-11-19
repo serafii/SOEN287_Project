@@ -1,4 +1,4 @@
-localStorage.setItem("loggedIn", true); //Execute if the login form was submitted and the error message is not displayed meaning successful login
+localStorage.setItem("loggedIn", true); //Execute if the user is logged in
 
 window.onload = ()=>{
     const url = new URLSearchParams(window.location.search);
