@@ -1,3 +1,3 @@
-if(localStorage.getItem("loggedIn")==false){
- document.getElementById("request-link").href = "../Login page/SignIn.html";   
+if(localStorage.getItem("loggedIn") === "true"){
+ document.getElementById("request-link").href =  "../Service Request/servicereq.html";   
 }

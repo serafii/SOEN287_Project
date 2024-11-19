@@ -120,9 +120,20 @@ function createAccount(req, res){ //Create account logic, need to send email and
     }); 
 } //End of create account post method
 
-function deleteAccount(req, res){
-  //Need to retrieve user ID of the logged in client
-  const id = 1;
+
+function deleteAccount(req, res){ //Delete account function
+  
+  const username = req.body.usernameInput;
+  let id = 0;
+  let sqlStatement0 = "SELECT ID FROM LoginInformation WHERE Username = ?";
+  db.query(sqlStatement0,username, (err, result) =>{
+    if(err)
+      return res.status(500).send("Error retrieving account data");
+    if(result.length == 0)
+      return res.status(500).send("Error retrieving account data");
+
+    id = result[0].ID;
+  });
 
   let sqlStatement = "DELETE FROM Clients WHERE ID = ?";
   let query = db.query(sqlStatement, id, (err,result) =>{
@@ -133,12 +144,21 @@ function deleteAccount(req, res){
         let query2 = db.query(sqlStatement2, id, (err, result) =>{
         if(err)
           return res.status(500).send("Error deleting account");
+
+        //Send email
+        let htmlContent = 
+        `<h1>Account Deletion Confirmation - businessName</h1>
+        <p>👋 Hi ${username},</p>
+        <p>We're reaching out to confirm that your account with us has been successfully deleted. If you did not request this action or believe this was done in error, please contact our support team immediately.</p>
+        <p>Thank you for being part of our community. We're here if you ever wish to join us again.</p><p>Best regards,<br>businessName Team</p>`;
+            let subject = 'Account Deletion';
+        sendEmail(email, htmlContent, subject);
       
-        return res.status(200).send("Account successfully deleted");
+        return res.redirect('/Home page/Index.html');
       });
   });
 }
 
 module.exports.createAccount = createAccount;
 module.exports.sendEmail = sendEmail;
-//module.exports.deleteAccount = deleteAccount;
+module.exports.deleteAccount = deleteAccount;
