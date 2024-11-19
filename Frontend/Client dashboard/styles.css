@@ -27,12 +27,14 @@ footer{
     height: 40em;
 }
 
-#title{
-  position:absolute;
-  top: 20%;
-  left: 15%;
-  transform: translate(-50%, -50%);
-}
+#title {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    transform: translateY(-50%); 
+    max-width: 100%; 
+  }
+
 .services-list{
  margin-top: 11%; 
 }

@@ -22,3 +22,35 @@ function searchFor(){
 
         return false;
 }
+
+//Adjust navbar based on login status
+if (localStorage.getItem("loggedIn") == "true") {
+    document.getElementById("login").classList.add("hidden");
+    document.getElementById("signUp").classList.add("hidden");
+    document.getElementById("signOut").classList.remove("hidden");
+    document.getElementById("dashboard").classList.remove("hidden");
+} else {
+    document.getElementById("login").classList.remove("hidden");
+    document.getElementById("signUp").classList.remove("hidden");
+    document.getElementById("signOut").classList.add("hidden");
+    document.getElementById("dashboard").classList.add("hidden");
+}
+
+//In development do not modify
+//Try to implement a function that saves the login status of the user
+
+//If the user logs in, save a key in localStorage
+//Then display the correct navbar and dashboard based on the key
+
+//Sign out and redirect to login page
+
+function signOut(){
+    localStorage.setItem("loggedIn", false);
+    alert("Signed out successfully");
+    window.location.href = "../Home page/Index.html";
+}
+function signOut2(){
+    localStorage.setItem("loggedIn", false);
+    alert("Signed out successfully");
+    window.location.href = "../../Home page/Index.html";
+}

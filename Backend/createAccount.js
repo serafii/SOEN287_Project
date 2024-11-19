@@ -122,7 +122,6 @@ function createAccount(req, res){ //Create account logic, need to send email and
 
 function deleteAccount(req, res){
   //Need to retrieve user ID of the logged in client
-  //Probably have to use express session
   const id = 1;
 
   let sqlStatement = "DELETE FROM Clients WHERE ID = ?";

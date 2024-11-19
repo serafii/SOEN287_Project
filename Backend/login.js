@@ -20,13 +20,12 @@ function login (req, res){
     
             if(client.Username === username && client.Password === password){ //Redirect based on user type
               if(client.Role === "Client")
-                return res.sendFile(path.join(__dirname, '..', 'Frontend/Client dashboard', 'client.html'));
-    
+                return res.redirect(`/Client dashboard/client.html?name=${client.Username}`);
               else if (client.Role === "Manager")
-                return res.sendFile(path.join(__dirname, '..', 'Frontend/Manager dashboard', 'manager.html'));
+                return res.redirect("/Manager dashboard/manager.html");
             }
             else
-            return res.send("Password and username do not match"); //Call js function from the client in login form instead, socket.io?
+            return res.send("Password and username do not match"); 
         });
       }
       

@@ -36,13 +36,14 @@
       </form>
       <div class="col-md-3 text-end">
        <a href = "../Client dashboard/profile page/profile.html"><button type="button" class="btn btn-outline-primary me-2">Profile</button></a>
-       <a href = "../Home page/Index.html"><button type="button" class="btn btn-outline-danger me-2">Sign Out</button></a> 
+       <button type="button" class="btn btn-outline-danger me-2" onclick = "signOut()">Sign Out</button>
       </div>
     </header>
 
       
       <div id = "back-image">
-        <div id = "title"><h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3" id = "clientName">Welcome, Alex</h1> <!-- To be replaced with client name-->
+        <div id = "title">
+          <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3" id = "clientName">Welcome, Client</h1> 
           <br/>
         </div>
         <div class = "services-list">
@@ -72,6 +73,7 @@
             <li class="nav-item"><a href="../Home page/Index.html#about-us" class="nav-link px-2 text-body-secondary">About Us</a></li>
           </ul>
         </footer>
+      <script src = "../Client dashboard/scripts.js"></script>
       <script src = "../Common files/common_scripts.js"></script>
 </body>
 </html>

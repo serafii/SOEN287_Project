@@ -114,3 +114,10 @@ footer{
     overflow: hidden;
     margin-right: 3em;
 }
+.hidden {
+    display: none;
+}
+.boxLink{
+    text-decoration: none;
+    color: black;
+}
