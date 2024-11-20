@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const loginModule = require('./login');
-const createAccountModule = require('./createAccount');
+const accountModule = require('./Account');
  
 //This app.js file handles ALL get/post requests from clients
 //Actual get/post logic is defined in other js files and imported for simplicity
@@ -10,12 +10,14 @@ const createAccountModule = require('./createAccount');
 //This is the only file that handles all express requests
 
 app.use(express.urlencoded({ extended: false }));
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '../Frontend/views'));
 
 const PORT = 5000;
   
 app.use(express.static(path.join(__dirname, '../Frontend')));
 
-  app.post('/createAccount', createAccountModule.createAccount); 
+  app.post('/createAccount', accountModule.createAccount); 
 
   app.post('/login',loginModule.login);
 
@@ -23,7 +25,14 @@ app.use(express.static(path.join(__dirname, '../Frontend')));
 
   app.post('/resetPassword', loginModule.resetPassword);
 
-  app.post('/deleteAccount', createAccountModule.deleteAccount);
+  app.post('/deleteAccount', accountModule.deleteAccount);
+
+  app.get('/profile', accountModule.displayClientInfo);
+
+  app.post('/editProfile', accountModule.editProfile);
+
+  //Future option to add with express-session isAuthenticated:
+  //Block access to dashboards if users are not logged in and trying to access page by URL
 
   app.get('/', (req, res) => { //Send to home page when accessing the website
     res.sendFile(path.join(__dirname, '..', 'Frontend/Home page', 'Index.html'));

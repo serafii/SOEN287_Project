@@ -45,7 +45,7 @@
             <button class = "btn btn-outline-danger me-2" onclick="showDelete()">Yes, I want to continue</button>
             <a href = "../../Client dashboard/profile page/profile.html"><button class = "btn btn-outline-success me-2">No, take me back</button></a>
 
-            <form action = "/deleteAccount" method = "post" id = "deleteAccount" style="display: none;">
+            <form action = "/deleteAccount" method = "post" id = "deleteAccount" style="display: none;" onsubmit="accountDeleted()">
                 <br/>
                 <input type = "hidden" id = "usernameInput" name = "usernameInput" value = ""/>
                 <input class = "btn btn-outline-danger me-2" type = "submit" value = "Delete my Account">

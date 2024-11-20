@@ -1,6 +1,6 @@
 const db = require('./db');
 const path = require('path');
-const emailModule = require('./createAccount');
+const emailModule = require('./Account');
 
 function login (req, res){
         //Redirect based on login credentials
@@ -25,7 +25,7 @@ function login (req, res){
                 return res.redirect("/Manager dashboard/manager.html?link=manager"); //Change link to actual manager dashboard
             }
             else
-              return res.send("Password and username do not match"); 
+              return res.redirect('/Login page/SignIn.html?error=invalid');
         });
       }
       
