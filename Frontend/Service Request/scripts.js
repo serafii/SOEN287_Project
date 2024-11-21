@@ -1,8 +1,14 @@
-function addService(){
-    if (confirm("Are you sure you want to add this service?") == true) {
-        window.location.href = "../Client dashboard/client.html";
-        alert("Service successfully added!")
-    } else {
-    
-    }
+function addService() {
+    $('#serviceRequestModal').modal('show');
 }
+
+document.getElementById('serviceRequestForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Handle form submission logic here
+    alert('Form submitted!');
+    $('#serviceRequestModal').modal('hide');
+
+
+});
+
+document.getElementById('serviceType').value=localStorage.getItem('username')
