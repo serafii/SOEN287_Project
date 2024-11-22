@@ -3,6 +3,7 @@ const path = require('path');
 const app = express();
 const loginModule = require('./login');
 const accountModule = require('./Account');
+const businessinfo = require('./Admin');
  
 //This app.js file handles ALL get/post requests from clients
 //Actual get/post logic is defined in other js files and imported for simplicity
@@ -31,12 +32,14 @@ app.use(express.static(path.join(__dirname, '../Frontend')));
 
   app.post('/editProfile', accountModule.editProfile);
 
+
+  businessinfo(app);
   //Future option to add with express-session isAuthenticated:
   //Block access to dashboards if users are not logged in and trying to access page by URL
 
-  app.get('/', (req, res) => { //Send to home page when accessing the website
-    res.sendFile(path.join(__dirname, '..', 'Frontend/Home page', 'Index.html'));
-  });
+  app.get('/', (req, res) => {
+    res.render('index'); // Render the EJS file instead of serving HTML
+});
 
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
