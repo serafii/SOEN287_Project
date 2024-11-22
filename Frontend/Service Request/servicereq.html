@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
      
-    <title>Service Request</title>
+    <title>Dashboard</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../Service Request/styles.css">
@@ -52,28 +52,69 @@
                 <li class="table-row">
                   <div class="col col-1" data-label="Job Id">REGULAR INTERIOR CLEANING</div>
                   <div class="col col-2" data-label="Amount">$350</div>
-                  <div class="col col-3"> <button class="btn btn-primary rounded-pill px-3 btns" type="button" onclick="addService()">Request</button></div>
+                  
                 </li>
                 <li class="table-row">
                   <div class="col col-1" data-label="Job Id">MAJOR INTERIOR CLEANING</div>
                   <div class="col col-2" data-label="Amount">$220</div>
-                  <div class="col col-3"> <button class="btn btn-primary rounded-pill px-3 btns" type="button" onclick="addService()">Request</button></div>
+
                 </li>
                 <li class="table-row">
                   <div class="col col-1" data-label="Job Id">EXTERIOR CLEANING</div>
                   <div class="col col-2" data-label="Amount">$341</div>
-                  <div class="col col-3"><button class="btn btn-primary rounded-pill px-3 btns" type="button" onclick="addService()">Request</button> </div>
-                </li>
+                  
 
                 <li class="table-row">
                   <div class="col col-1" data-label="Job Id">COMPREHENSIVE CLEANING</div>
                   <div class="col col-2" data-label="Amount">$341</div>
-                  <div class="col col-2"> <button class="btn btn-primary rounded-pill px-3 btns" type="button" onclick="addService()">Request</button></div>
+                 
                 </li>
+                  <div class="col col-3"> <button class="btn btn-primary rounded-pill px-3 btns" type="button" onclick="addService()">Request</button></div>
               </ul>
           </div>
       </div>
-      
+
+    <div class="modal fade" id="serviceRequestModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Requested Service</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="serviceRequestForm" action="/serviceRequest" method="POST">
+                        <input type="hidden" name="username" id="username" value="correctUsername">
+                        <div class="form-group">
+                            <label for="services">Select Service:</label>
+                            <div>
+                                <input type="radio" id="service1" name="services" value="Service1" required>
+                                <label for="service1">REGULAR INTERIOR CLEANING</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="service2" name="services" value="Service2">
+                                <label for="service2">MAJOR INTERIOR CLEANING</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="service3" name="services" value="Service3">
+                                <label for="service3">EXTERIOR CLEANING</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="service4" name="services" value="Service4">
+                                <label for="service4">COMPREHENSIVE CLEANING</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Choose a date:</label>
+                            <input type="date" class="form-control" id="date" name="date" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
       
        
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-0 border-top">
@@ -86,6 +127,10 @@
             <li class="nav-item"><a href="../Home page/Index.html#about-us" class="nav-link px-2 text-body-secondary">About Us</a></li>
           </ul>
         </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script src = "../Common files/common_scripts.js"></script>
         <script src = "scripts.js"></script>
 </body>
