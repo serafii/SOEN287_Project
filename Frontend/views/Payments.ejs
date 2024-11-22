@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <title>Bills and Payments</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../Admin files/Bills and Payments/styles.css">
 
-    <link rel = "icon" type = "image/jpg" href = "../../Common files/Icon.png">
+    <link rel = "icon" type = "image/jpg" href = "../Common files/Icon.png">
 </head>
 <body>
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-0 border-bottom" id = "navbar"> 
     <div class="col-md-3 mb-2 mb-md-0">
       <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-          <img id = "logo" src ="../../Common files/Icon.png" alt="company logo">
+          <img id = "logo" src ="../Common files/Icon.png" alt="company logo">
       </a>
     </div>
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
@@ -29,7 +29,7 @@
       </datalist>
     </form>
     <div class="col-md-3 text-end">
-      <a href = "../../Manager dashboard/manager.html"><button type="button" class="btn btn-outline-primary me-2">Dashboard</button></a> 
+      <a href = "../Manager dashboard/manager.html"><button type="button" class="btn btn-outline-primary me-2">Dashboard</button></a> 
       <button type="button" class="btn btn-outline-danger me-2" onclick = "signOut2()">Sign Out</button>
     </div>
   </header>
@@ -55,30 +55,23 @@
           </li>
           </ul>
           <ul class="responsive-table table-body">
-          <li class="table-row">
-            <div class="col col-1" data-label="Client">MARC TREMBLAY</div>
-            <div class="col col-2" data-label="#bills">222345</div>
-            <div class="col col-3" data-label="Date">2024-10-30</div>
-            <div class="col col-4" data-label="Status"><button class="btn btn-primary rounded-pill px-3 btns2" type="button" onclick="markAsPaid()">Paid</button></div>
-          </li>
-          <li class="table-row">
-            <div class="col col-1" data-label="Client">HUGO VEPER</div>
-            <div class="col col-2" data-label="#bills">124454</div>
-            <div class="col col-3" data-label="Date">2024-09-05</div>
-            <div class="col col-4" data-label="Status"><button class="btn btn-primary rounded-pill px-3 btns2" type="button" onclick="addService()">Paid</button></div>
-          </li>
-          <li class="table-row">
-            <div class="col col-1" data-label="Client">SARAH LAYNE</div>
-            <div class="col col-2" data-label="#bills">998464</div>
-            <div class="col col-3" data-label="Date">2024-09-17</div>
-            <div class="col col-4" data-label="Status"><button class="btn btn-primary rounded-pill px-3 btns2" type="button" onclick="addService()">Paid</button></div>
-          </li>
-          <li class="table-row">
-            <div class="col col-1" data-label="Client">RITA OUD</div>
-            <div class="col col-2" data-label="#bills">445635</div>
-            <div class="col col-3" data-label="Date">2024-10-20</div>
-            <div class="col col-4" data-label="Status"><button class="btn btn-primary rounded-pill px-3 btns" type="button" onclick="markAsUnpaid()">Unpaid</button></div>
-          </li>
+            <% if (bills.length === 0) { %>
+              <li class="table-row">
+                <div class="col col-1">No bills at the moment</div>
+                <div class="col col-2">-</div>
+                <div class="col col-3">-</div>
+                <div class="col col-4">-</div>
+              </li>
+            <% } else { %>
+              <% bills.forEach(function(bill) { %>
+                <li class="table-row">
+                  <div class="col col-1"><%= bill.Username %></div>
+                  <div class="col col-2"><%= bill.ID %></div>
+                  <div class="col col-3"><%= bill.Date %></div>
+                  <div class="col col-4"><button class="btn btn-primary rounded-pill px-3 btns2" type="button" onclick = "confirmService('<%= bill.ID %>')"><%= bill.Status %></button></div>
+                </li>
+              <% }); %>
+            <% } %>
         </ul>
       </div>
     </div>
@@ -95,7 +88,7 @@
           <li class="nav-item"><a href="/#about-us" class="nav-link px-2 text-body-secondary">About Us</a></li>
         </ul>
       </footer>
-      <script src="../../Common files/common_scripts.js"></script>
-      <script src="filter.js"></script>
+      <script src="../Common files/common_scripts.js"></script>
+      <script src="../Admin files/Bills and Payments/filter.js"></script>
 </body>
 </html>

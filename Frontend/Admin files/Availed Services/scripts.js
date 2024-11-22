@@ -9,8 +9,16 @@ function removeService(button){
 
  function confirmService(button){
   if (confirm("Are you sure you want to confirm this service?") == true) {
+     const serviceId = button.closest('tr').querySelector('.service-id').dataset.serviceId;
      const row = button.closest('tr');
      row.remove();
+     fetch('/confirmService', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json', 
+      },
+      body: JSON.stringify({ serviceId }) 
+    });
  } else {
  
  }
