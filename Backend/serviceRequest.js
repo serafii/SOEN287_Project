@@ -30,4 +30,29 @@ function submitServiceRequest(req, res) {
     });
 }
 
+function displayServiceRequestPage(req, res){
+        let sqlStatement = "SELECT * FROM Services";
+        let services1;
+        let servicePricing1;
+        
+        db.query(sqlStatement, (err, result) => {
+            if(err) 
+               return res.send("Error displaying services");
+
+            services1 = result;
+
+            let sqlStatement2 = "SELECT * FROM ServicePricing";
+            
+            db.query(sqlStatement2, (err, result) => {
+                if(err) 
+                   return res.send("Error displaying services pricing");
+
+                servicePricing1 = result;
+
+                return res.render('servicereq', {services : services1, servicePricing: servicePricing1});
+            });
+        });
+}
+
 module.exports.submitServiceRequest = submitServiceRequest;
+module.exports.displayServiceRequestPage = displayServiceRequestPage;

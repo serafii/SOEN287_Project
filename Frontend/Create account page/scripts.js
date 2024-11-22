@@ -59,7 +59,13 @@ function samePassword(){
     }
   };
 
-
+  window.onload = ()=>{
+    const url = new URLSearchParams(window.location.search);
+    if (url.has('username')) {
+      document.getElementById("welcomeTitle").innerHTML = "Welcome " + url.get('username') + "!";
+    }
+  };
+ 
 function formValidity(){
   if (samePassword()) {
       return true; 

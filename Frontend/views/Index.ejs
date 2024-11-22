@@ -13,15 +13,15 @@
 <body>  
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-0 border-bottom" id = "navbar"> 
       <div class="col-md-3 mb-2 mb-md-0">
-        <a href="Index.html" class="d-inline-flex link-body-emphasis text-decoration-none">
+        <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
             <img id = "logo" src = "../Common files/Icon.png">
         </a>
       </div>
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
 
-        <li><a href="../Home page/Index.html" class="nav-link px-2 link-secondary" title = "Home">Home</a></li>
-        <li><a href="../Services/services.html" class="nav-link px-2" title = "Services">Services</a></li>
-        <li><a href="../Pricing/Pricing.html" class="nav-link px-2" title = "Pricing">Pricing</a></li>
+        <li><a href="/" class="nav-link px-2 link-secondary" title = "Home">Home</a></li>
+        <li><a href="/Services" class="nav-link px-2" title = "Services">Services</a></li>
+        <li><a href="/Pricing" class="nav-link px-2" title = "Pricing">Pricing</a></li>
 
         <li><a href="#about-us" class="nav-link px-2" title = "About Us">About Us</a></li>
       </ul>
@@ -86,41 +86,23 @@
             <button class="btn btn-primary mb-4 btns">Create an Account now!</button>
         </a>
     </div>
-
           <div class = "services-list">
             <br/>
             <h2 id = "serv">Our Services</h2><br/>
               <div class = "col-box">
-                <div class = "text-box">
-                  <div class = "services-text">
-                    <h4>Regular interior cleaning</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur saepe necessitatibus ipsum, aliquid et laudantium dolores, animi atque neque molestiae consequatur quisquam eaque quibusdam itaque magnam distinctio repudiandae quia est.</p>
+                <% services.forEach(function(service) { %>
+                  <div class = "text-box">
+                    <div class = "services-text">
+                      <h4><%= service.ServiceName %></h4>
+                      <p><%= service.ServiceDescription %></p>
+                    </div>
                   </div>
-                </div>
+                  <br/>
+                <% }); %>
                 <br/>
-                <div class = "text-box">
-                  <div class = "services-text">
-                    <h4>Major interior cleaning</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur saepe necessitatibus ipsum, aliquid et laudantium dolores, animi atque neque molestiae consequatur quisquam eaque quibusdam itaque magnam distinctio repudiandae quia est.</p>
-                  </div>
-                </div>
-                <br/>
-                <div class = "text-box">
-                  <div class = "services-text">
-                    <h4>Exterior cleaning</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur saepe necessitatibus ipsum, aliquid et laudantium dolores, animi atque neque molestiae consequatur quisquam eaque quibusdam itaque magnam distinctio repudiandae quia est.</p>
-                  </div>
-                </div>
-                <br/>
-                <div class = "text-box">
-                  <div class = "services-text"> 
-                    <h4>Comprehensive cleaning</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur saepe necessitatibus ipsum, aliquid et laudantium dolores, animi atque neque molestiae consequatur quisquam eaque quibusdam itaque magnam distinctio repudiandae quia est.</p>
-                  </div>
-                </div>
               </div>
               <br/><br/>
-            <a href = "../Services/services.html"><button class = "btn btn-primary mb-3 btns">Full services list</button></a>
+            <a href = "/Services"><button class = "btn btn-primary mb-3 btns">Full services list</button></a>
           </div>
 
     
@@ -143,10 +125,10 @@
         
           <ul class="nav col-md-4 justify-content-end">
 
-            <li class="nav-item"><a href="../Home page/Index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
-            <li class="nav-item"><a href="../Services/services.html" class="nav-link px-2 text-body-secondary">Services</a></li>
-            <li class="nav-item"><a href="../Pricing/Pricing.html" class="nav-link px-2 text-body-secondary">Pricing</a></li>
-            <li class="nav-item"><a href="#about-us" class="nav-link px-2 text-body-secondary">About Us</a></li>
+            <li class="nav-item"><a href="/" class="nav-link px-2 text-body-secondary">Home</a></li>
+          <li class="nav-item"><a href="/Services" class="nav-link px-2 text-body-secondary">Services</a></li>
+          <li class="nav-item"><a href="/Pricing" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+          <li class="nav-item"><a href="#about-us" class="nav-link px-2 text-body-secondary">About Us</a></li>
           </ul>
         </footer>
       <script src = "../Common files/common_scripts.js"></script>

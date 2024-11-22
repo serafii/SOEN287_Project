@@ -9,7 +9,7 @@ if(localStorage.getItem("state") === "manager"){
 }else{
         document.querySelectorAll(".request-link").forEach(link => {   
         if(localStorage.getItem("loggedIn") === "true"){
-            link.href = "../Service Request/servicereq.html";   
+            link.href = "/ServiceRequest";   
         }
     });
 }

@@ -14,15 +14,14 @@
 <body>  
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-0 border-bottom" id = "navbar"> 
       <div class="col-md-3 mb-2 mb-md-0">
-        <a href="../Home page/Index.html" class="d-inline-flex link-body-emphasis text-decoration-none">
+        <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
             <img id = "logo" src ="../Common files/Icon.png" alt="company logo">
         </a>
       </div>
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="../Home page/Index.html" class="nav-link px-2" title = "Home">Home</a></li>
-        <li><a href="../Services/services.html" class="nav-link px-2" title = "Services">Services</a></li>
-        <li><a href="../Pricing/Pricing.html" class="nav-link px-2" title = "Pricing">Pricing</a></li>
-        <li hidden><a href="#about-us" class="nav-link px-2" title = "About Us">About Us</a></li>
+        <li><a href="/" class="nav-link px-2" title = "Home">Home</a></li>
+        <li><a href="/Services" class="nav-link px-2" title = "Services">Services</a></li>
+        <li><a href="/Pricing" class="nav-link px-2" title = "Pricing">Pricing</a></li>
       </ul>
 
       <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" onsubmit="return searchFor()">
@@ -34,7 +33,7 @@
       </form>
       <div class="col-md-3 text-end">
        <a href = "../Client dashboard/client.html"><button type="button" class="btn btn-outline-primary me-2">Dashboard</button></a> 
-       <a href = "../Home page/Index.html"><button type="button" class="btn btn-outline-danger me-2" onclick = "signOut()">Sign Out</button></a> 
+       <a href = "/"><button type="button" class="btn btn-outline-danger me-2" onclick = "signOut()">Sign Out</button></a> 
       </div>
     </header>
 
@@ -49,26 +48,20 @@
                   <div class="col col-2">Amount </div>
                   <div class="col col-3"> </div>
                 </li>
-                <li class="table-row">
-                  <div class="col col-1" data-label="Job Id">REGULAR INTERIOR CLEANING</div>
-                  <div class="col col-2" data-label="Amount">$350</div>
-                  
-                </li>
-                <li class="table-row">
-                  <div class="col col-1" data-label="Job Id">MAJOR INTERIOR CLEANING</div>
-                  <div class="col col-2" data-label="Amount">$220</div>
-
-                </li>
-                <li class="table-row">
-                  <div class="col col-1" data-label="Job Id">EXTERIOR CLEANING</div>
-                  <div class="col col-2" data-label="Amount">$341</div>
-                  
-
-                <li class="table-row">
-                  <div class="col col-1" data-label="Job Id">COMPREHENSIVE CLEANING</div>
-                  <div class="col col-2" data-label="Amount">$341</div>
-                 
-                </li>
+                <% services.forEach(function(service) { %>
+                  <li class="table-row">
+                    <div class="col col-1" data-label="Job Id"><%= service.ServiceName %></div>
+                    <div class="col col-2" data-label="Amount">
+                    <% let pricing = servicePricing.find(p => p.ServiceName === service.ServiceName); 
+                        if (pricing) { 
+                          %><%= pricing.Price %><% 
+                        } else { 
+                          %>N/A<% 
+                        } 
+                      %>
+                    </div>
+                  </li>
+                <% }); %>
                   <div class="col col-3"> <button class="btn btn-primary rounded-pill px-3 btns" type="button" onclick="addService()">Request</button></div>
               </ul>
           </div>
@@ -88,22 +81,12 @@
                         <input type="hidden" name="username" id="username" value="correctUsername">
                         <div class="form-group">
                             <label for="services">Select Service:</label>
-                            <div>
-                                <input type="radio" id="service1" name="services" value="Service1" required>
-                                <label for="service1">REGULAR INTERIOR CLEANING</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="service2" name="services" value="Service2">
-                                <label for="service2">MAJOR INTERIOR CLEANING</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="service3" name="services" value="Service3">
-                                <label for="service3">EXTERIOR CLEANING</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="service4" name="services" value="Service4">
-                                <label for="service4">COMPREHENSIVE CLEANING</label>
-                            </div>
+                            <% services.forEach(function(service) { %>
+                              <div>
+                                <input type="radio" name="services" id = "<%= service.ServiceName %>" value="<%= service.ServiceName %>" required>
+                                <label for = "<%= service.ServiceName %>"><%= service.ServiceName %></label>
+                              </div>
+                            <% }); %>
                         </div>
                         <div class="form-group">
                             <label for="date">Choose a date:</label>
@@ -121,10 +104,10 @@
           <p class="col-md-4 mb-0 text-body-secondary">© 2024 Cleaning Services</p>
         
           <ul class="nav col-md-4 justify-content-end">
-            <li class="nav-item"><a href="../Home page/Index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
-            <li class="nav-item"><a href="../Services/services.html" class="nav-link px-2 text-body-secondary">Services</a></li>
-            <li class="nav-item"><a href="../Pricing/Pricing.html" class="nav-link px-2 text-body-secondary">Pricing</a></li>
-            <li class="nav-item"><a href="../Home page/Index.html#about-us" class="nav-link px-2 text-body-secondary">About Us</a></li>
+          <li class="nav-item"><a href="/" class="nav-link px-2 text-body-secondary">Home</a></li>
+          <li class="nav-item"><a href="/Services" class="nav-link px-2 text-body-secondary">Services</a></li>
+          <li class="nav-item"><a href="/Pricing" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+          <li class="nav-item"><a href="/#about-us" class="nav-link px-2 text-body-secondary">About Us</a></li>     
           </ul>
         </footer>
 
@@ -132,6 +115,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script src = "../Common files/common_scripts.js"></script>
-        <script src = "scripts.js"></script>
+        <script src = "../Service Request/scripts.js"></script>
 </body>
 </html>

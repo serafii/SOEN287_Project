@@ -92,6 +92,9 @@ footer{
     margin-left: 1em;
     margin-right: 1em;
     display: flex;
+    justify-content: center; 
+    align-items: center; 
+    flex-wrap: wrap; 
 }
 .text-box{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -99,10 +102,17 @@ footer{
     margin-right: 1em;
     padding: 2em;
     border-radius: 2em;
-
+    min-height: 15em;
+    max-height: 15em;
+    min-width: 20em;
+    max-width: 20em;
+    margin-bottom: 2em;
+    word-wrap: break-word;
+    overflow: hidden;    
 }
 .services-text{
-    text-align: left;
+    text-align: justify;
+    
 }
 #about-us{
     margin-left: 2em;

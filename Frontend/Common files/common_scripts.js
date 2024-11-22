@@ -8,15 +8,13 @@ function searchFor(){
     else if (x.includes("create"))
         window.location.href = "../Create account page/Account.html";
     else if(x.includes("ser"))
-        window.location.href = "../Services/services.html";
+        window.location.href = "/Services";
     else if(x.includes("pric")||x.includes("cost"))
-        window.location.href = "../Pricing/Pricing.html";
+        window.location.href = "/Pricing";
     else if(x.includes("compan"))
-        window.location.href = "../Home page/Index.html#about-us";
+        window.location.href = "/#about-us";
     else if(x.includes("forgot") && x.includes("passw"))
         window.location.href = "../Login page/password.html";
-    else if ((x.includes("add")||x.includes("reque")) && x.includes("service"))
-        window.location.href = "../Service Request/servicereq.html";
     else
         alert("Nothing was found.");
 
@@ -35,13 +33,13 @@ function signOut(){
     localStorage.setItem("loggedIn", false);
     localStorage.removeItem("state");
     alert("Signed out successfully");
-    window.location.href = "../Home page/Index.html";
+    window.location.href = "/";
 }
 function signOut2(){
     localStorage.setItem("loggedIn", false);
     localStorage.removeItem("state");
     alert("Signed out successfully");
-    window.location.href = "../../Home page/Index.html";
+    window.location.href = "/";
 }
 
 //Redirect to the correct dashboard based on the user's role
@@ -60,7 +58,7 @@ const inactivityCheck = setInterval(() => {
     alert("You have been logged out due to inactivity");
     clearInterval(inactivityCheck); 
     localStorage.setItem("loggedIn", false);
-    window.location.href = "/Home page/Index.html"; //Absolute path to redirect to the home page
+    window.location.href = "/"; //Absolute path to redirect to the home page
   }
 }, 60000); 
 

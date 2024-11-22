@@ -1,9 +1,11 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const db = require('./db');
 const loginModule = require('./login');
 const accountModule = require('./Account');
 const serviceRequestModule = require('./serviceRequest');
+const editServicesModule = require('./editServices');
  
 //This app.js file handles ALL get/post requests from clients
 //Actual get/post logic is defined in other js files and imported for simplicity
@@ -34,11 +36,34 @@ app.use(express.static(path.join(__dirname, '../Frontend')));
 
   app.post('/serviceRequest', serviceRequestModule.submitServiceRequest);
 
+  app.get('/ServiceHandler', editServicesModule.displayEditServicesPage);
+
+  app.post('/modifyService', editServicesModule.modifyService);
+
+  app.post('/modifyServicePricing', editServicesModule.modifyServicePricing);
+
+  app.post('/deleteService', editServicesModule.deleteService);
+
+  app.post('/addService', editServicesModule.addService);
+
+  app.get('/Services', editServicesModule.displayServices);
+
+  app.get('/Pricing', editServicesModule.displayPricing);
+
+  app.get('/ServiceRequest', serviceRequestModule.displayServiceRequestPage);
+
   //Future option to add with express-session isAuthenticated:
   //Block access to dashboards if users are not logged in and trying to access page by URL
 
   app.get('/', (req, res) => { //Send to home page when accessing the website
-    res.sendFile(path.join(__dirname, '..', 'Frontend/Home page', 'Index.html'));
+    let sqlStatement = "SELECT * FROM Services";
+    
+    db.query(sqlStatement, (err, result) => {
+        if(err) 
+           return res.send("Error displaying services");
+        
+        return res.render('Index', {services: result});
+    });
   });
 
   app.listen(PORT, () => {

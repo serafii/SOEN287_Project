@@ -6,5 +6,5 @@ if(localStorage.getItem("loggedIn") === "true"){
         }  
     }
     else
-        document.getElementById("request-link").href =  "../Service Request/servicereq.html";   
+        document.getElementById("request-link").href =  "/ServiceRequest";   
 }

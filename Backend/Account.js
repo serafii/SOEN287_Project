@@ -114,7 +114,8 @@ function createAccount(req, res){ //Create account logic, need to send email and
                 let subject = 'Account Creation';
                 sendEmail(email, htmlContent, subject);
             });
-            return res.sendFile(path.join(__dirname, '..', 'Frontend/Create account page', 'accountCreated.html')); 
+            //return res.sendFile(path.join(__dirname, '..', 'Frontend/Create account page', 'accountCreated.html')); 
+            return res.redirect(`/Create account page/accountCreated.html?username=${username}`);
             
         });
     }); 
