@@ -4,7 +4,7 @@ function addService() {
 
 document.getElementById('serviceRequestForm').addEventListener('submit', function(event) {
     // Handle form submission logic here
-    alert('Servicce added! Check your dashboard for updates.');
+    alert('Service added! Check your dashboard for updates.');
     $('#serviceRequestModal').modal('hide');
 
 

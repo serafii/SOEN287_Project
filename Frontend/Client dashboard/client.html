@@ -53,7 +53,7 @@
               <a href="../Client dashboard/Bills Page/Bills.html" class = "text-box services-text">
                   <h4>Bills</h4>
               </a>
-              <a href="../Client dashboard/cancellation page/cancellation.html" class = "text-box services-text">
+              <a id = "myServicesLink" href="#" class = "text-box services-text">
                   <h4>My Services</h4>
               </a>
             </div>
@@ -71,6 +71,35 @@
           <li class="nav-item"><a href="/#about-us" class="nav-link px-2 text-body-secondary">About Us</a></li>
           </ul>
         </footer>
+        <script>
+          function getQueryParam(param) {
+              const urlParams = new URLSearchParams(window.location.search);
+              return urlParams.get(param);
+          }
+  
+          // Extract 'name' parameter from URL
+          const username = getQueryParam('name');
+  
+          // Update My Services link if username exists
+          if (username) {
+            const requestServicesLink = document.querySelector('a[href="/ServiceRequest"]');
+            if (requestServicesLink) {
+                requestServicesLink.href = `/ServiceRequest?name=${username}`;
+            }
+
+            const billsLink = document.querySelector('a[href="../Client dashboard/Bills Page/Bills.html"]');
+            if (billsLink) {
+                billsLink.href = `../Client dashboard/Bills Page/Bills.html?name=${username}`;
+            }
+
+            const myServicesLink = document.getElementById('myServicesLink');
+            if (myServicesLink){
+              myServicesLink.href = `../myServices?name=${username}`;
+            }
+          } else {
+              console.error('Username not found in URL.');
+          }
+      </script>
       <script src = "../Client dashboard/scripts.js"></script>
       <script src = "../Common files/common_scripts.js"></script>
 </body>

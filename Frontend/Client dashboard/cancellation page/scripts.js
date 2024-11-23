@@ -6,3 +6,4 @@ function removeService(button){
   
   }
 }
+document.getElementById('username').value = localStorage.getItem('username');
