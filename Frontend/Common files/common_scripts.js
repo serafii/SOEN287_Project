@@ -21,9 +21,6 @@ function searchFor(){
         return false;
 }
 
-//In development do not modify
-//Try to implement a function that saves the login status of the user
-
 //If the user logs in, save a key in localStorage
 //Then display the correct navbar and dashboard based on the key
 
@@ -84,3 +81,14 @@ if (localStorage.getItem("loggedIn") == "true") {
     document.getElementById("signOut").classList.add("hidden");
     document.getElementById("dashboard").classList.add("hidden");
 }
+
+window.addEventListener('storage', (event) => {
+    if (event.key === "loggedIn" && event.newValue === "false") {
+        localStorage.removeItem("username");
+        document.getElementById("login").classList.remove("hidden");
+        document.getElementById("signUp").classList.remove("hidden");
+        document.getElementById("signOut").classList.add("hidden");
+        document.getElementById("dashboard").classList.add("hidden");
+    }
+  });
+  

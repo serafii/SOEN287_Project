@@ -12,3 +12,11 @@ document.getElementById('serviceRequestForm').addEventListener('submit', functio
 
 document.getElementById('username').value = localStorage.getItem('username');
 
+window.addEventListener('storage', (event) => {
+    if (event.key === "loggedIn" && event.newValue === "false") {
+        // Logout detected in another tab
+        localStorage.removeItem("username");
+        window.location.href = "/"; // Redirect to home page
+    }
+  });
+

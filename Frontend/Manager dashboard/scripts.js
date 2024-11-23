@@ -1,3 +1,11 @@
+window.addEventListener('storage', (event) => {
+    if (event.key === "loggedIn" && event.newValue === "false") {
+        // Logout detected in another tab
+        localStorage.removeItem("username");
+        window.location.href = "/"; // Redirect to home page
+    }
+  });
+
 localStorage.setItem("loggedIn", true); //Execute if the user is logged in
 
 window.onload = () => {
