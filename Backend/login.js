@@ -2,7 +2,7 @@ const db = require('./db');
 const path = require('path');
 const emailModule = require('./Account');
 
-function login (req, res){
+    function login (req, res){
         //Redirect based on login credentials
 
         const username = req.body.username;
@@ -19,6 +19,7 @@ function login (req, res){
             const client = result[0];
     
             if(client.Username === username && client.Password === password){ //Redirect based on user type
+
               if(client.Role === "Client")
                 return res.redirect(`/Client dashboard/client.html?name=${client.Username}`);
               else if (client.Role === "Manager")

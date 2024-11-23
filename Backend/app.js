@@ -6,6 +6,9 @@ const loginModule = require('./login');
 const accountModule = require('./Account');
 const serviceRequestModule = require('./serviceRequest');
 const editServicesModule = require('./editServices');
+const myServicesModule = require('./myServices');
+
+
  
 //This app.js file handles ALL get/post requests from clients
 //Actual get/post logic is defined in other js files and imported for simplicity
@@ -51,6 +54,12 @@ app.use(express.static(path.join(__dirname, '../Frontend')));
   app.get('/Pricing', editServicesModule.displayPricing);
 
   app.get('/ServiceRequest', serviceRequestModule.displayServiceRequestPage);
+
+  app.get('/myServices', myServicesModule.displayMyServices);
+
+  app.post('/cancelService', myServicesModule.cancelService);
+
+
 
   //Future option to add with express-session isAuthenticated:
   //Block access to dashboards if users are not logged in and trying to access page by URL

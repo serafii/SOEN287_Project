@@ -26,7 +26,7 @@ function submitServiceRequest(req, res) {
             console.error("Error saving service request:", err);
             return res.status(500).send("Error saving service request.");
         }
-        res.redirect('/Client dashboard/client.html');
+        res.redirect('/Client dashboard/client.html?name=' + username);
     });
 }
 
@@ -34,6 +34,8 @@ function displayServiceRequestPage(req, res){
         let sqlStatement = "SELECT * FROM Services";
         let services1;
         let servicePricing1;
+        const username = req.query.name;
+
         
         db.query(sqlStatement, (err, result) => {
             if(err) 
@@ -49,7 +51,7 @@ function displayServiceRequestPage(req, res){
 
                 servicePricing1 = result;
 
-                return res.render('servicereq', {services : services1, servicePricing: servicePricing1});
+                return res.render('servicereq', {services : services1, servicePricing: servicePricing1, username: username});
             });
         });
 }
