@@ -38,19 +38,19 @@
       <br/><br/> 
       <h1>Edit Business Information</h1>
       <p id = "desc">Edit your business or logo here!</p><br/>
-        <form action = "" method = "" class = "row g-3 form-control" onsubmit="saveData()">
+        <form action = "/editBusinessInfo" method = "post" class = "row g-3 form-control" onsubmit="saveData()"  enctype="multipart/form-data">
             <div class="row g-3">
                 <div class = "col-md-6">
                     <label for = "businessName" class = "form-label">Business Name</label>
-                    <input id = "businessName" class = "form-control box" type = "text" required placeholder="Cleaning Services">
+                    <input id = "businessName" class = "form-control box" type = "text" required placeholder="Cleaning Services" name = "businessName">
                 </div>
                 <div class="col-md-6">
                     <label for = "editLogo" class = "form-label">Logo <small id = "imageTypes">(JPEG/JPG, PNG or WebP)</small></label>
-                    <input id = "editLogo" class = "form-control box" type = "file" accept=".jpeg, .jpg, .png, .webp">
+                    <input id = "editLogo" class = "form-control box" type = "file" accept=".jpeg, .jpg, .png, .webp" name = "Icon" required>
                 </div>
                 <div class = "col-md-12">
                   <label for = "businessSlogan" class = "form-label">Business Slogan</label>
-                  <input id = "businessSlogan" class = "form-control box" type = "text" required placeholder="Because clean matters">
+                  <input id = "businessSlogan" class = "form-control box" type = "text" required placeholder="Because clean matters" name = "businessSlogan">
               </div>
             </div> 
             <div id = "buttons" class = "row g-3">
@@ -72,6 +72,5 @@
         </ul>
       </footer>
       <script src = "../../Common files/common_scripts.js"></script>
-      <script src = "scripts.js"></script>
 </body>
 </html>
