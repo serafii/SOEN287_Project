@@ -37,4 +37,5 @@ function confirmService(billId){
       body: JSON.stringify({ billId }) 
     });
   }
+  window.location.reload();
 }

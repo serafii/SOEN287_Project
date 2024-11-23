@@ -8,6 +8,7 @@ const serviceRequestModule = require('./serviceRequest');
 const editServicesModule = require('./editServices');
 const adminModule = require('./admin');
 const multer = require("multer");
+const myServicesModule = require('./myServices');
  
 //This app.js file handles ALL get/post requests from clients
 //Actual get/post logic is defined in other js files and imported for simplicity
@@ -65,6 +66,12 @@ app.use(express.static(path.join(__dirname, '../Frontend')));
   app.get('/Bills', adminModule.displayBills);
 
   app.post('/confirmBill', adminModule.confirmBill);
+
+  app.get('/myServices/:username', myServicesModule.displayMyServices);
+
+  app.post('/cancelService', myServicesModule.cancelService);
+
+  app.get('/myBills/:username', myServicesModule.displayMyBills);
 
   const storage = multer.diskStorage({
     destination: (req, file, cb) => {

@@ -7,15 +7,15 @@
     <title>Bills</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../Client dashboard/Bills Page/styles.css">
 
-    <link rel = "icon" type = "image/jpg" href = "../../Common files/Icon.png">
+    <link rel = "icon" type = "image/jpg" href = "../Common files/Icon.png">
 </head>
 <body>  
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-0 border-bottom" id = "navbar"> 
       <div class="col-md-3 mb-2 mb-md-0">
         <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-            <img id = "logo" src ="../../Common files/Icon.png" alt="company logo">
+            <img id = "logo" src ="../Common files/Icon.png" alt="company logo">
         </a>
       </div>
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
@@ -33,63 +33,45 @@
         </datalist>
       
       </form>
-      
-
       <div class="col-md-3 text-end">
-       <a href = "../../Client dashboard/client.html"><button type="button" class="btn btn-outline-primary me-2">Dashboard</button></a> 
-       <button type="button" class="btn btn-outline-danger me-2" onclick = "signOut2()">Sign Out</button>
-          
+       <a href = "../Client dashboard/client.html"><button type="button" class="btn btn-outline-primary me-2">Dashboard</button></a> 
+       <button type="button" class="btn btn-outline-danger me-2" onclick = "signOut2()">Sign Out</button>     
       </div>
-    </header>
-
-      
+    </header>    
       <div id = "back-image">
         <div id = "title"><h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Bills</h1><br/></div>
         <br><br><br><br><br><br>
-
         <div class="container">
-            
             <ul class="responsive-table">
               <li class="table-header">
                 <div class="col col-1">Job Id</div>
                 <div class="col col-2">Date</div>
-                <div class="col col-3">Amount Due</div>
                 <div class="col col-4">Payment Status</div>
               </li>
-            <a href="">
-              <li class="table-row">
-                <div class="col col-1" data-label="Job Id">42235</div>
-                <div class="col col-2" data-label="Customer Name">01/23/2024</div>
-                <div class="col col-3" data-label="Amount">$350</div>
-                <div class="col col-4 payed" data-label="Payment Status">Payed</div>
-              </li>
-            </a>
-            <a href="">
-              <li class="table-row">
-                <div class="col col-1" data-label="Job Id">42442</div>
-                <div class="col col-2" data-label="Customer Name">03/12/2024</div>
-                <div class="col col-3" data-label="Amount">$220</div>
-                <div class="col col-4 payed" data-label="Payment Status">Payed</div>
-              </li>
-            </a>
-              <a href="">
-              <li class="table-row">
-                <div class="col col-1" data-label="Job Id">42257</div>
-                <div class="col col-2" data-label="Customer Name">05/15/2024</div>
-                <div class="col col-3" data-label="Amount">$341</div>
-                <div class="col col-4 pending" data-label="Payment Status">Pending</div>
-              </li>
-            </a>
+
+              <% if (bills.length === 0) { %>
+                <a href="">
+                  <li class="table-row">
+                    <div class="col col-1">No bills at the moment</div>
+                    <div class="col col-2">-</div>
+                    <div class="col col-4">-</div>
+                  </li>
+                </a>
+              <% } else { %>
+                <% bills.forEach(function(bill) { %>
+                  <a href="">
+                    <li class="table-row">
+                      <div class="col col-1"><%= bill.ID %></div>
+                      <div class="col col-2"><%= bill.Date %></div>
+                      <div class="col col-4 pending"><%= bill.Status %></div>
+                    </li>
+                  </a>
+                <% }); %>
+              <% } %>
             </ul>
-
           </div>
-
-      </div>
-    
-      </div>
-      
-      
-       
+      </div> 
+      </div>  
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-0 border-top">
           <p class="col-md-4 mb-0 text-body-secondary">© 2024 Cleaning Services</p>
         
@@ -100,6 +82,6 @@
           <li class="nav-item"><a href="/#about-us" class="nav-link px-2 text-body-secondary">About Us</a></li>
           </ul>
         </footer>
-        <script src = "../../Common files/common_scripts.js"></script>
+        <script src = "../Common files/common_scripts.js"></script>
 </body>
 </html>

@@ -110,16 +110,15 @@ function createAccount(req, res){ //Create account logic, need to send email and
                   }
                 });
                 //Send email
-                let htmlContent = `<h1>Welcome to businessName!</h1><p>👋 Hi ${username},</p><p>Thank you for creating an account with us!<br>You can now access all of our features and start enjoying the full benefits of your account.</p><p>Best regards,<br>businessName Team</p>`;
+                let htmlContent = `<h1>Welcome aboard!</h1><p>👋 Hi ${username},</p><p>Thank you for creating an account with us!<br>You can now access all of our features and start enjoying the full benefits of your account.</p><p>Best regards,<br>Your Support Team</p>`;
                 let subject = 'Account Creation';
                 sendEmail(email, htmlContent, subject);
-            });
-            //return res.sendFile(path.join(__dirname, '..', 'Frontend/Create account page', 'accountCreated.html')); 
+            }); 
             return res.redirect(`/Create account page/accountCreated.html?username=${username}`);
             
         });
     }); 
-} //End of create account post method
+} //End of create account method
 
 
 function deleteAccount(req, res) {
@@ -169,10 +168,10 @@ function deleteAccount(req, res) {
 
                   // Send email
                   let htmlContent = 
-                  `<h1>Account Deletion Confirmation - businessName</h1>
+                  `<h1>Account Deletion Confirmation</h1>
                   <p>👋 Hi ${username},</p>
                   <p>We're reaching out to confirm that your account with us has been successfully deleted. If you did not request this action or believe this was done in error, please contact our support team immediately.</p>
-                  <p>Thank you for being part of our community. We're here if you ever wish to join us again.</p><p>Best regards,<br>businessName Team</p>`;
+                  <p>Thank you for being part of our community. We're here if you ever wish to join us again.</p><p>Best regards,<br>Your Support Team</p>`;
                   let subject = 'Account Deletion';
                   sendEmail(email, htmlContent, subject);
 
@@ -272,9 +271,9 @@ function deleteAccount(req, res) {
           return res.status(500).send("Error updating account");
 
         //Send email
-        let htmlContent = `<h1>Account Update - businessName</h1><p>👋 Hi ${username},</p>
+        let htmlContent = `<h1>Account Update</h1><p>👋 Hi ${username},</p>
         <p>Your account has been successfully updated. If you did not request this action or believe this was done in error, please contact our support team immediately.</p>
-        <p>Thank you for being part of our community. We're here if you ever wish to join us again.</p><p>Best regards,<br>businessName Team</p>`;
+        <p>Thank you for being part of our community. We're here if you ever wish to join us again.</p><p>Best regards,<br>Your Support Team</p>`;
         let subject = 'Account Update';
         sendEmail(email, htmlContent, subject);
 
