@@ -1,2 +1,8 @@
-Created 6 folders for each part of the website with their corresponding files. Other files to be added later as the project goes on.
-Styling to be improved as well.
+SOEN287 Project: Business Service Template
+
+This project is a template designed for business companies offering services. It allows customers to create accounts and request services, while managers have the ability to directly edit the website and manage service requests.
+
+Built as part of the SOEN287 course.
+
+Visit the website here.
+https://soen287-project-fvxv.onrender.com
