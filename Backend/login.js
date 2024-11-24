@@ -79,7 +79,7 @@ function login (req, res){
 
           //Replace link later with actual url when website is deployed
           let htmlContent = `<h1>Reset your password</h1><p> Hi ${result[0].FirstName},</p>
-          <p>Click on the button below to access the password reset page.</p> <a href="http://127.0.0.1:5000/Login%20page/resetPassword.html" target="_blank">Click Here</a> 
+          <p>Click on the button below to access the password reset page.</p> <a href="https://soen287-project-fvxv.onrender.com/Login%20page/resetPassword.html" target="_blank">Click Here</a> 
           <p>Best regards,<br>Your Support Team</p>`;
 
           let subject = 'Password reset';
