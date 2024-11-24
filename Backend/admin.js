@@ -92,8 +92,36 @@ function editBusinessInfo(req, res){
 
 }
 
+    function editAboutUs (req, res){
+        const aboutUs = req.body.aboutUs;
+
+        let sqlStatement = "UPDATE BusinessTerms SET AboutUs = ? WHERE ID = 1";
+
+        db.query(sqlStatement, aboutUs, (err, result) => {
+            if(err)
+                return res.status(500).send("Error updating data");
+
+            return res.redirect('/Manager dashboard/manager.html');
+        });
+    }
+
+    function editTerms (req, res){
+        const terms = req.body.termsConditions;
+
+        let sqlStatement = "UPDATE BusinessTerms SET Terms = ? WHERE ID = 1";
+
+        db.query(sqlStatement, terms, (err, result) => {
+            if(err)
+                return res.status(500).send("Error updating data");
+
+            return res.redirect('/Manager dashboard/manager.html');
+        });
+    }
+
 module.exports.displayCurrentServices = displayCurrentServices;
 module.exports.confirmService = confirmService;
 module.exports.displayBills = displayBills;
 module.exports.confirmBill = confirmBill;
 module.exports.editBusinessInfo = editBusinessInfo;
+module.exports.editAboutUs = editAboutUs;
+module.exports.editTerms = editTerms;

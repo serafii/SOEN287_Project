@@ -73,6 +73,13 @@ app.use(express.static(path.join(__dirname, '../Frontend')));
 
   app.get('/myBills/:username', myServicesModule.displayMyBills);
 
+  app.post('/modifyAboutUs', adminModule.editAboutUs);
+
+  app.post('/modifyTerms', adminModule.editTerms);
+
+  app.get('/terms', accountModule.displayTerms);
+
+
   const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, path.join(__dirname, '../Frontend/Common files')); 
@@ -110,9 +117,16 @@ const upload = multer({
         db.query(sqlStatement2, (err, result2) => {
             if(err)
                 return res.send("Error displaying services");
-            
-            let businessInfo = result2[0];
-            return res.render('Index', {services: result, businessInfo});
+
+            let sqlStatement3 = "SELECT * FROM BusinessTerms WHERE ID = 1";
+            db.query(sqlStatement3, (err, result3) => {
+                if(err)
+                    return res.send("Error displaying services");
+
+                let businessInfo = result2[0];
+                let terms = result3[0];
+                return res.render('Index', {services: result, businessInfo, terms});
+            });
         });
     });
   });

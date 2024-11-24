@@ -283,8 +283,19 @@ function deleteAccount(req, res) {
   });  
 }
 
+  function displayTerms(req, res){
+    let sqlStatement = "SELECT * FROM BusinessTerms WHERE ID = 1";
+    db.query(sqlStatement, (err, result) => {
+        if(err)
+            return res.status(500).send("Error displaying terms");
+        
+        return res.render('terms', {terms : result[0]});
+    });
+  }
+
 module.exports.createAccount = createAccount;
 module.exports.sendEmail = sendEmail;
 module.exports.deleteAccount = deleteAccount;
 module.exports.editProfile = editProfile;
 module.exports.displayClientInfo = displayClientInfo;
+module.exports.displayTerms = displayTerms;

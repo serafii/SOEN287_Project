@@ -56,14 +56,10 @@ function removeService(button){
         alert("Please select a valid date.");
         return;
     }
-
-    const rows = document.querySelectorAll('#table tr:not(:first-child)');
-
+    const rows = document.querySelectorAll('#table tbody tr');
     rows.forEach(row => {
-        const dateText = row.querySelector('.col-3').textContent.trim();
-        
+        const dateText = row.querySelector('.col-3').textContent.trim();    
         const rowDate = new Date(dateText);
-
         if (rowDate >= filterDate) {
             row.style.display = ''; 
         } else {

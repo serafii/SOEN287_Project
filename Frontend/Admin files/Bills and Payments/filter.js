@@ -1,6 +1,11 @@
 function filterByDate() {
     const filterDate = new Date(document.getElementById('filter-date').value);
     const rows = document.querySelectorAll('.table-row');
+
+    if (isNaN(filterDate.getTime())) {
+      alert("Please select a valid date.");
+      return;
+  }
   
     rows.forEach(row => {
       const dateText = row.querySelector('.col-3').textContent;

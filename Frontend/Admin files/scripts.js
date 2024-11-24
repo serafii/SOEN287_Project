@@ -4,4 +4,8 @@ window.addEventListener('storage', (event) => {
         window.location.href = "/"; // Redirect to home page
     }
   });
+
+  function submitted(){
+    alert("Business information successfully updated!");
+  }
   
