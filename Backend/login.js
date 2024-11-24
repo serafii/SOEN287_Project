@@ -19,6 +19,12 @@ function login (req, res){
             const client = result[0];
     
             if(client.Username === username && client.Password === password){ //Redirect based on user type
+
+              req.session.user = { //Start a session for that user
+                username: client.Username,
+                role: client.Role
+            };
+
               if(client.Role === "Client")
                 return res.redirect(`/Client dashboard/client.html?name=${client.Username}`);
               else if (client.Role === "Manager")
@@ -28,9 +34,33 @@ function login (req, res){
               return res.redirect('/Login page/SignIn.html?error=invalid');
         });
       }
+
+    function logout (req, res){
+        req.session.destroy((err) => {
+            if(err)
+              return res.status(500).send("Error logging out");
+        });
+      }
+
+      //Verify login status and role
+
+      function verifyClient(req, res, next) {
+        if (req.session.user && req.session.user.role === 'Client') {
+            return next();
+        } else {
+            return res.redirect('/Login page/SignIn.html');
+        }
+    }
+
+      function verifyManager(req, res, next) {
+        if (req.session.user && req.session.user.role === 'Manager') {
+            return next();
+        } else {
+            return res.redirect('/Login page/SignIn.html');
+        }
+    }
       
       //This may not work if two clients ask to reset password at the same time
-      //Need to find a way to get ID from the forgot password function
       let ID = 0; //Not secure, change if possible
 
     function forgotPassword (req, res){
@@ -78,5 +108,8 @@ function login (req, res){
 
 
 module.exports.login = login;
+module.exports.logout = logout;
+module.exports.verifyClient = verifyClient;
+module.exports.verifyManager = verifyManager;
 module.exports.forgotPassword = forgotPassword;
 module.exports.resetPassword = resetPassword;

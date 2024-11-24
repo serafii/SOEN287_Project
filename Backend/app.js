@@ -9,11 +9,21 @@ const editServicesModule = require('./editServices');
 const adminModule = require('./admin');
 const multer = require("multer");
 const myServicesModule = require('./myServices');
+const session = require('express-session');
  
 //This app.js file handles ALL get/post requests from clients
 //Actual get/post logic is defined in other js files and imported for simplicity
 //**IMPORTANT** 
 //This is the only file that handles all express requests
+
+//Test
+app.use(session({
+    secret: 'soen287Test',
+    resave: false,            
+    saveUninitialized: false,
+    cookie: { secure: false }      
+}));
+
 
 app.use(express.urlencoded({ extended: false }));
 
@@ -24,8 +34,45 @@ app.use(express.json());
 app.set('views', path.join(__dirname, '../Frontend/views'));
 
 const PORT = 5000;
-  
-app.use(express.static(path.join(__dirname, '../Frontend')));
+
+  //Block access to dashboards if users are not logged in and trying to access page by URL
+
+    //Client dashboard links 
+
+    app.get('/Client dashboard/client.html', loginModule.verifyClient, (req, res) => {
+        return res.sendFile(path.join(__dirname, '..', 'Frontend/Client dashboard', 'client.html'));
+    });
+    
+    app.get('/Client dashboard/profile page/deleteAccount.html', loginModule.verifyClient, (req, res) => {
+        return res.sendFile(path.join(__dirname, '..', 'Frontend/Client%20dashboard/profile page', 'deleteAccount.html'));
+    });
+
+    app.get('/myServices/:username', loginModule.verifyClient, myServicesModule.displayMyServices);
+
+    app.get('/myBills/:username', loginModule.verifyClient, myServicesModule.displayMyBills);
+
+    app.get('/ServiceRequest', loginModule.verifyClient, serviceRequestModule.displayServiceRequestPage);
+
+    //Manager dashboard links
+
+    app.get('/Manager dashboard/manager.html', loginModule.verifyManager, (req, res) => {
+        return res.sendFile(path.join(__dirname, '..', 'Frontend/Manager dashboard', 'manager.html'));
+    });
+
+    app.get('/Admin files/Business Info/Info.html', loginModule.verifyManager, (req, res) => {
+        return res.sendFile(path.join(__dirname, '..', 'Frontend/Admin%20files/Business%20Info', 'Info.html'));
+    });
+
+    app.get('/ServiceHandler', loginModule.verifyManager, editServicesModule.displayEditServicesPage);
+
+    app.get('/CurrentServices', loginModule.verifyManager, adminModule.displayCurrentServices);
+
+    app.get('/Bills', loginModule.verifyManager, adminModule.displayBills);
+
+
+  //Serve all routes
+
+  app.use(express.static(path.join(__dirname, '../Frontend')));
 
   app.post('/createAccount', accountModule.createAccount); 
 
@@ -79,6 +126,9 @@ app.use(express.static(path.join(__dirname, '../Frontend')));
 
   app.get('/terms', accountModule.displayTerms);
 
+  app.post('/logout', loginModule.logout);
+
+  //For edit business logo, replace the current Icon.png with the one uploaded by the admin
 
   const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -103,10 +153,9 @@ const upload = multer({
 
   app.post('/editBusinessInfo',upload.single('Icon'), adminModule.editBusinessInfo);
 
-  //Future option to add with express-session isAuthenticated:
-  //Block access to dashboards if users are not logged in and trying to access page by URL
+  //Route for home page
 
-  app.get('/', (req, res) => { //Send to home page when accessing the website
+  app.get('/', (req, res) => { 
     let sqlStatement = "SELECT * FROM Services";
     
     db.query(sqlStatement, (err, result) => {

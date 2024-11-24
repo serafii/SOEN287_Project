@@ -30,12 +30,11 @@ function signOut(){
     localStorage.setItem("loggedIn", false);
     localStorage.removeItem("state");
     alert("Signed out successfully");
-    window.location.href = "/";
-}
-function signOut2(){
-    localStorage.setItem("loggedIn", false);
-    localStorage.removeItem("state");
-    alert("Signed out successfully");
+
+    fetch('/logout', {
+        method: 'POST',
+        credentials: 'include'
+      });
     window.location.href = "/";
 }
 

@@ -32,8 +32,7 @@ function filterByDate() {
 
 function confirmService(billId){
   if(confirm("Are you sure you want to confirm that this service has been paid?") === true){
-    console.log(billId);
-
+  
     fetch('/confirmBill', {
       method: 'POST',
       headers: {
