@@ -32,6 +32,7 @@ app.set('views', path.join(__dirname, '../Frontend/views'));
 
 const PORT = 5000;
 
+
   //Block access to dashboards if users are not logged in and trying to access page by URL
 
     //Client dashboard links 
@@ -68,11 +69,14 @@ const PORT = 5000;
 
     app.get('/Bills', loginModule.verifyManager, adminModule.displayBills);
 
+    
+
+    app.use(express.static(path.join(__dirname, '../Frontend/Common files')));
+
+    app.use(express.static(path.join(__dirname, '../Frontend')));
+
 
   //Serve all routes
-  app.use(express.static(path.join(__dirname, '../Frontend/Common files')));
-
-  app.use(express.static(path.join(__dirname, '../Frontend')));
 
   app.post('/createAccount', accountModule.createAccount); 
 

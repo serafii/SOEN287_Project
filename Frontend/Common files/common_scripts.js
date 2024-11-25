@@ -27,7 +27,8 @@ function searchFor(){
 //Sign out and redirect to login page
 
 function signOut(){
-    localStorage.clear();
+    localStorage.setItem("loggedIn", false);
+    localStorage.removeItem("state");
     alert("Signed out successfully");
 
     fetch('/logout', {

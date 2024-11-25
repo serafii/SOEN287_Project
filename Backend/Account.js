@@ -260,10 +260,9 @@ function deleteAccount(req, res) {
       db.query(sqlMail, email, (err, result) => {
         if(err)
           return res.status(500).send("Error creating account");
-        if (result.length > 0) 
+        if (result.length > 1) 
           return res.redirect('/Create account page/Account.html?error=invalidEmail');
-      });
-
+      
         //Update profile informations from all tables
     let sqlStatement = "UPDATE Clients SET ? WHERE ID = ?";
     let query = db.query(sqlStatement, [client, id], (err, result) =>{
@@ -287,6 +286,7 @@ function deleteAccount(req, res) {
         return res.redirect('/Home page/Index.html'); //Send to home page after
       });
     });
+   });
   });  
 }
 
