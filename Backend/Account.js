@@ -256,6 +256,13 @@ function deleteAccount(req, res) {
         return res.status(500).send("Error updating account");
 
       id = result[0].ID;
+      let sqlMail = "SELECT * FROM Clients WHERE Email = ?"; //Verify email address
+      db.query(sqlMail, email, (err, result) => {
+        if(err)
+          return res.status(500).send("Error creating account");
+        if (result.length > 0) 
+          return res.redirect('/Create account page/Account.html?error=invalidEmail');
+      });
 
         //Update profile informations from all tables
     let sqlStatement = "UPDATE Clients SET ? WHERE ID = ?";

@@ -16,7 +16,6 @@ const session = require('express-session');
 //**IMPORTANT** 
 //This is the only file that handles all express requests
 
-//Test
 app.use(session({
     secret: 'soen287Test',
     resave: false,            
@@ -26,8 +25,6 @@ app.use(session({
 
 
 app.use(express.urlencoded({ extended: false }));
-
-app.use(express.static(path.join(__dirname, '../Frontend/Common files')));
 
 app.set('view engine', 'ejs');
 app.use(express.json());
@@ -44,8 +41,10 @@ const PORT = 5000;
     });
     
     app.get('/Client dashboard/profile page/deleteAccount.html', loginModule.verifyClient, (req, res) => {
-        return res.sendFile(path.join(__dirname, '..', 'Frontend/Client%20dashboard/profile page', 'deleteAccount.html'));
+        return res.sendFile(path.join(__dirname, '..', 'Frontend/Client dashboard/profile page', 'deleteAccount.html'));
     });
+
+    app.get('/profile/:username',loginModule.verifyClient, accountModule.displayClientInfo);
 
     app.get('/myServices/:username', loginModule.verifyClient, myServicesModule.displayMyServices);
 
@@ -60,7 +59,7 @@ const PORT = 5000;
     });
 
     app.get('/Admin files/Business Info/Info.html', loginModule.verifyManager, (req, res) => {
-        return res.sendFile(path.join(__dirname, '..', 'Frontend/Admin%20files/Business%20Info', 'Info.html'));
+        return res.sendFile(path.join(__dirname, '..', 'Frontend/Admin files/Business Info', 'Info.html'));
     });
 
     app.get('/ServiceHandler', loginModule.verifyManager, editServicesModule.displayEditServicesPage);
@@ -71,6 +70,7 @@ const PORT = 5000;
 
 
   //Serve all routes
+  app.use(express.static(path.join(__dirname, '../Frontend/Common files')));
 
   app.use(express.static(path.join(__dirname, '../Frontend')));
 

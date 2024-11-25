@@ -32,6 +32,7 @@
         
   
         <div class="col-md-3 text-end">
+            <a href = "../Client dashboard/client.html"><button type="button" class="btn btn-outline-primary me-2">Dashboard</button></a> 
             <button type="button" class="btn btn-outline-danger me-2" onclick = "signOut()">Sign Out</button>
         </div>
       </header>
@@ -55,7 +56,7 @@
                   <div class = "col-md-12">
                       <label for = "username">Username</label>
                       <span class="text-danger">*</span>
-                      <input id = "username" class = "form-control box" type = "text" value = "<%= profile.Username%>" name = "username" required readonly title="Unchangeable username">
+                      <input id = "username" class = "form-control box" type = "text" value = "<%= profile.Username%>" name = "username" required disabled title="Unchangeable username">
                   </div>
               </div> 
               <div class="row g-3">
@@ -65,7 +66,8 @@
                       <input id = "email" class = "form-control box" type = "email" placeholder="ex: alex123@mail.com" pattern = "[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" value = "<%= profile.Email%>" name = "email" required>
                       <div class="invalid-feedback">
                           Please enter a valid email address.
-                        </div>
+                      </div>
+                        <small><p id = "wrongEmail" class="text-danger"></p></small>
                   </div>
               </div> 
                <div class="row g-3">
@@ -128,7 +130,7 @@
           
       </div>
       <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-0 border-top">
-        <<p class="col-md-4 mb-0 text-body-secondary">© 2024 <a href = "mailto:yourbusinesscompany001@gmail.com" class="text-body-secondary" style = "text-decoration: none;">yourbusinesscompany001@gmail.com</a></p>
+        <p class="col-md-4 mb-0 text-body-secondary">© 2024 <a href = "mailto:yourbusinesscompany001@gmail.com" class="text-body-secondary" style = "text-decoration: none;">yourbusinesscompany001@gmail.com</a></p>
       
         <ul class="nav col-md-4 justify-content-end">
             <li class="nav-item"><a href="/" class="nav-link px-2 text-body-secondary">Home</a></li>
