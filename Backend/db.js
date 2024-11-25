@@ -13,10 +13,20 @@ const db = mysql.createConnection({
   db.connect((err) => {
     if (err) {
       console.log("Error connecting to DB");
+      setTimeout(retryConnection, 3000);
     } else {
       console.log("Connected");
     }
   });
+
+  function retryConnection(){
+    db.connect((err) => {
+      if (err) 
+        console.log("Error connecting to DB");
+      else 
+        console.log("Connected");
+  });
+}
 
   //Make db accessible to other files
   module.exports = db;
