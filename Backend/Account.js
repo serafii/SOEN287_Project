@@ -175,7 +175,7 @@ function deleteAccount(req, res) {
                   let subject = 'Account Deletion';
                   sendEmail(email, htmlContent, subject);
 
-                  return res.redirect('/Home page/Index.html'); // Send to home page after
+                  return res.redirect('/'); // Send to home page after
               });
           });
       });
@@ -251,30 +251,29 @@ function deleteAccount(req, res) {
     let sqlStatement0 = "SELECT ID FROM LoginInformation WHERE Username = ?";
     let query0 = db.query(sqlStatement0, username, (err, result) =>{
       if(err)
-        return res.status(500).send("Error updating account");
+        return res.status(500).send("Error retrieving ID from account");
       if(result.length == 0)
-        return res.status(500).send("Error updating account");
+        return res.status(500).send("Error retrieving ID from account");
 
       id = result[0].ID;
       let sqlMail = "SELECT * FROM Clients WHERE Email = ?"; //Verify email address
       db.query(sqlMail, email, (err, result) => {
         if(err)
-          return res.status(500).send("Error creating account");
+          return res.status(500).send("Error retrieving account data");
         if (result.length > 1) 
-          return res.redirect('/Create account page/Account.html?error=invalidEmail');
+          return res.redirect('/profile?error=wrongEmail'); 
       
         //Update profile informations from all tables
     let sqlStatement = "UPDATE Clients SET ? WHERE ID = ?";
     let query = db.query(sqlStatement, [client, id], (err, result) =>{
       if(err){
-        console.error("Error updating Clients table:", err);
         return res.status(500).send("Error updating account");
       }
       
       let sqlStatement2 = "UPDATE LoginInformation SET Password = ? WHERE Username = ?";
       let query2 = db.query(sqlStatement2, [password, username], (err, result) =>{
         if(err)
-          return res.status(500).send("Error updating account");
+          return res.status(500).send("Error updating credentials");
 
         //Send email
         let htmlContent = `<h1>Account Update</h1><p>👋 Hi ${username},</p>
@@ -283,7 +282,7 @@ function deleteAccount(req, res) {
         let subject = 'Account Update';
         sendEmail(email, htmlContent, subject);
 
-        return res.redirect('/Home page/Index.html'); //Send to home page after
+        return res.redirect('/'); //Send to home page after
       });
     });
    });

@@ -37,11 +37,11 @@ const PORT = 5000;
 
     //Client dashboard links 
 
-    app.get('/Client dashboard/client.html', loginModule.verifyClient, (req, res) => {
+    app.get('/Client%20dashboard/client.html', loginModule.verifyClient, (req, res) => {
         return res.sendFile(path.join(__dirname, '..', 'Frontend/Client dashboard', 'client.html'));
     });
     
-    app.get('/Client dashboard/profile page/deleteAccount.html', loginModule.verifyClient, (req, res) => {
+    app.get('/Client%20dashboard/profile%20page/deleteAccount.html', loginModule.verifyClient, (req, res) => {
         return res.sendFile(path.join(__dirname, '..', 'Frontend/Client dashboard/profile page', 'deleteAccount.html'));
     });
 
@@ -55,11 +55,11 @@ const PORT = 5000;
 
     //Manager dashboard links
 
-    app.get('/Manager dashboard/manager.html', loginModule.verifyManager, (req, res) => {
+    app.get('/Manager%20dashboard/manager.html', loginModule.verifyManager, (req, res) => {
         return res.sendFile(path.join(__dirname, '..', 'Frontend/Manager dashboard', 'manager.html'));
     });
 
-    app.get('/Admin files/Business Info/Info.html', loginModule.verifyManager, (req, res) => {
+    app.get('/Admin%20files/Business%20Info/Info.html', loginModule.verifyManager, (req, res) => {
         return res.sendFile(path.join(__dirname, '..', 'Frontend/Admin files/Business Info', 'Info.html'));
     });
 
