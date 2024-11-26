@@ -6,3 +6,12 @@ window.onload = ()=>{
         localStorage.setItem("loggedIn", false);
     }
 };
+
+window.addEventListener('storage', (event) => {
+    if (event.key === "loggedIn" && event.newValue === "false") {
+        // Logout detected in another tab
+        localStorage.removeItem("username");
+        window.location.href = "/"; // Redirect to home page
+    }
+  });
+  

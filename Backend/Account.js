@@ -261,7 +261,7 @@ function deleteAccount(req, res) {
         if(err)
           return res.status(500).send("Error retrieving account data");
         if (result.length > 0) 
-          return res.redirect('/profile?error=invalidEmail'); 
+          return res.redirect(`/profile?error=invalidEmail&name=${username}`); 
       
         //Update profile informations from all tables
     let sqlStatement = "UPDATE Clients SET ? WHERE ID = ?";
