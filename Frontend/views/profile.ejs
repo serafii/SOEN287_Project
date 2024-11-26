@@ -68,8 +68,8 @@
                       <div class="invalid-feedback">
                           Please enter a valid email address.
                       </div>
-                        <% if (req.query.error === 'wrongEmail') { %>
-                                <small><p id = "wrongEmail" class="text-danger">Email address already linked to an existing account</p></small>
+                        <% if (error === 'invalidEmail') { %>
+                            <small><p id = "wrongEmail" class="text-danger">Email address already linked to an existing account</p></small>
                         <% } %>
                   </div>
               </div> 

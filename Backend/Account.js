@@ -184,7 +184,7 @@ function deleteAccount(req, res) {
 
   //Display Client's information on the edit account form with fields already filled
   function displayClientInfo(req, res){
-
+    const error = req.query.error; //If email is taken after form submission
     const username = req.query.name;
 
     //Retrieve client's data from all tables
@@ -219,7 +219,7 @@ function deleteAccount(req, res) {
           Password : password,
         };
 
-        res.render('profile', { profile: user }); //Fill the profile.ejs form with the client's data
+        res.render('profile', { profile: user, error }); //Fill the profile.ejs form with the client's data
       });
     });
   }
@@ -260,8 +260,8 @@ function deleteAccount(req, res) {
       db.query(sqlMail, email, (err, result) => {
         if(err)
           return res.status(500).send("Error retrieving account data");
-        if (result.length > 1) 
-          return res.redirect('/profile?error=wrongEmail'); 
+        if (result.length > 0) 
+          return res.redirect('/profile?error=invalidEmail'); 
       
         //Update profile informations from all tables
     let sqlStatement = "UPDATE Clients SET ? WHERE ID = ?";
