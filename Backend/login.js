@@ -80,7 +80,7 @@ function login (req, res){
           let subject = 'Password reset';
           emailModule.sendEmail(result[0].Email, htmlContent, subject);
 
-          return res.sendFile(path.join(__dirname, '..', 'Frontend/Login page', 'password.html'));
+          return res.redirect('/Login page/SignIn.html');
       });
     }
 
@@ -95,7 +95,7 @@ function login (req, res){
           if(err)
             return res.status(500).send("Error updating data");
 
-          return res.sendFile(path.join(__dirname, '..', 'Frontend/Home page', 'Index.html'));
+          return res.redirect('/Login page/SignIn.html');
       });
     }
 
