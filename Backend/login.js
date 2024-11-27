@@ -59,9 +59,6 @@ function login (req, res){
             return res.redirect('/Login page/SignIn.html');
         }
     }
-      
-      //This may not work if two clients ask to reset password at the same time
-      let ID = 0; //Not secure, change if possible
 
     function forgotPassword (req, res){
       
@@ -75,11 +72,9 @@ function login (req, res){
           if(result.length == 0) //if the email doesn't correspond to any account
             return res.sendFile(path.join(__dirname, '..', 'Frontend/Login page', 'password.html'));
 
-            ID = result[0].ID;
-
           //Replace link later with actual url when website is deployed
           let htmlContent = `<h1>Reset your password</h1><p> Hi ${result[0].FirstName},</p>
-          <p>Click on the button below to access the password reset page.</p> <a href="https://soen287-project-fvxv.onrender.com/Login%20page/resetPassword.html" target="_blank">Click Here</a> 
+          <p>Click on the button below to access the password reset page.</p> <a href="https://soen287-project-fvxv.onrender.com/Login%20page/resetPassword.html?id=${result[0].ID}" target="_blank">Click Here</a> 
           <p>Best regards,<br>Your Support Team</p>`;
 
           let subject = 'Password reset';
@@ -92,9 +87,7 @@ function login (req, res){
     function resetPassword (req, res){ //Improve ID fetching if possible
 
       const password = req.body.password;
-      const id = ID;
-
-      console.log(id);
+      const id = req.query.id;
 
       let sqlStatement = "UPDATE LoginInformation SET Password = ? WHERE ID = ?";
 
