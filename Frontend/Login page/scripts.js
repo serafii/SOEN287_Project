@@ -12,3 +12,8 @@ function samePassword(){
         return true;
     }
 }
+
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get('id');
+if(id)
+    document.getElementById("hiddenID").value = id;

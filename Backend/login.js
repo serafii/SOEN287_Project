@@ -87,7 +87,7 @@ function login (req, res){
     function resetPassword (req, res){ //Improve ID fetching if possible
 
       const password = req.body.password;
-      const id = req.query.id;
+      const id = req.body.id;
 
       let sqlStatement = "UPDATE LoginInformation SET Password = ? WHERE ID = ?";
 
